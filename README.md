@@ -155,7 +155,7 @@ Los scripts y algoritmos en Python se publican bajo licencia MIT.
 
 ## Cómo citar
 
-Busón Buesa, C. 2026. Kit de Verificación Comunitaria Escazú. Repositorio abierto de plantillas, formularios, guías y algoritmos para la verificación comunitaria de proyectos con posible impacto ambiental. GitHub. https://github.com/TU_USUARIO/kit-verificacion-comunitaria-escazu
+Busón Buesa, C. 2026. Kit de Verificación Comunitaria Escazú. Repositorio abierto de plantillas, formularios, guías y algoritmos para la verificación comunitaria de proyectos con posible impacto ambiental. GitHub. https://github.com/cbuson/kit-verificacion-comunitaria-escazu
 
 ## Advertencia ética
 
