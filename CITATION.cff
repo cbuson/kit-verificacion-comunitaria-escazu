@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "Si utiliza este repositorio, cite esta herramienta comunitaria."
+title: "Kit de Verificación Comunitaria Escazú"
+authors:
+  - family-names: "Busón Buesa"
+    given-names: "Carlos"
+year: 2026
+repository-code: "https://github.com/TU_USUARIO/kit-verificacion-comunitaria-escazu"
+license: "CC-BY-SA-4.0 AND MIT"
+keywords:
+  - "Acuerdo de Escazú"
+  - "verificación comunitaria"
+  - "justicia ambiental"
+  - "software libre"
+  - "participación pública"
+  - "defensa territorial"
+  - "investigación ambiental"
+  - "empoderamiento digital comunitario"
+  - "Arroyo Guerrero"
+abstract: "Repositorio abierto de plantillas, formularios, guías y algoritmos para apoyar procesos comunitarios de verificación documental en proyectos con posible impacto ambiental bajo el Acuerdo de Escazú. El método fue desarrollado a partir del caso Arroyo Guerrero como experiencia real de aplicación comunitaria."
