@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitor de Cobertura Mediática — PTAR Riohacha</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --negro: #0a0908;
+    --gris-oscuro: #1a1917;
+    --gris-medio: #2d2b28;
+    --gris-claro: #4a4742;
+    --arena: #c8bfa8;
+    --arena-claro: #e8dcc8;
+    --oro: #c8960c;
+    --rojo: #b5341a;
+    --rojo-claro: #d4523a;
+    --verde: #2d6b3a;
+    --verde-claro: #4a9a5c;
+    --azul: #1a3d5c;
+    --azul-claro: #2d6a9f;
+    --texto: #c8bfa8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--negro);
+    color: var(--texto);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--gris-oscuro);
+    border-bottom: 2px solid var(--oro);
+    padding: 3rem 2rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 80px,
+      rgba(200,150,12,0.03) 80px,
+      rgba(200,150,12,0.03) 81px
+    );
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .header-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--oro);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  header h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--arena-claro);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  header h1 em {
+    font-style: italic;
+    color: var(--rojo-claro);
+  }
+
+  .header-desc {
+    font-size: 0.9rem;
+    color: var(--arena);
+    max-width: 700px;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .stat {
+    background: rgba(200,150,12,0.08);
+    border: 1px solid rgba(200,150,12,0.25);
+    padding: 0.7rem 1.2rem;
+    border-radius: 2px;
+  }
+
+  .stat-num {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--oro);
+    display: block;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--arena);
+    margin-top: 0.2rem;
+    display: block;
+  }
+
+  /* ALERTA */
+  .alerta {
+    background: rgba(181,52,26,0.1);
+    border-left: 4px solid var(--rojo);
+    padding: 1.2rem 1.5rem;
+    margin: 2rem auto;
+    max-width: 1100px;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .alerta-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rojo-claro);
+    margin-bottom: 0.5rem;
+  }
+
+  .alerta p {
+    font-size: 0.88rem;
+    color: var(--arena-claro);
+    line-height: 1.65;
+  }
+
+  /* MAIN */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  /* FILTROS */
+  .filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    align-items: center;
+  }
+
+  .filtro-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--arena);
+    margin-right: 0.5rem;
+  }
+
+  .filtro-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid rgba(200,150,12,0.3);
+    background: transparent;
+    color: var(--arena);
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+
+  .filtro-btn:hover, .filtro-btn.active {
+    background: rgba(200,150,12,0.15);
+    border-color: var(--oro);
+    color: var(--oro);
+  }
+
+  /* TABLA */
+  .tabla-container {
+    overflow-x: auto;
+    border: 1px solid rgba(200,150,12,0.15);
+    border-radius: 2px;
+    margin-bottom: 3rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+  }
+
+  thead {
+    background: var(--gris-medio);
+    border-bottom: 2px solid var(--oro);
+  }
+
+  th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--oro);
+    padding: 1rem 1.2rem;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid rgba(200,150,12,0.08);
+    transition: background 0.15s;
+  }
+
+  tbody tr:hover {
+    background: rgba(200,150,12,0.04);
+  }
+
+  td {
+    padding: 1rem 1.2rem;
+    font-size: 0.82rem;
+    color: var(--arena);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  td:first-child {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--gris-claro);
+    white-space: nowrap;
+  }
+
+  .medio {
+    font-weight: 500;
+    color: var(--arena-claro);
+    white-space: nowrap;
+  }
+
+  .titulo-noticia {
+    color: var(--arena-claro);
+    font-weight: 400;
+  }
+
+  .titulo-noticia a {
+    color: var(--azul-claro);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .titulo-noticia a:hover {
+    border-bottom-color: var(--azul-claro);
+  }
+
+  /* BADGES */
+  .badge {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .badge-proinstitucional {
+    background: rgba(181,52,26,0.2);
+    color: var(--rojo-claro);
+    border: 1px solid rgba(181,52,26,0.3);
+  }
+
+  .badge-neutral {
+    background: rgba(200,150,12,0.12);
+    color: var(--oro);
+    border: 1px solid rgba(200,150,12,0.25);
+  }
+
+  .badge-tecnico {
+    background: rgba(26,61,92,0.3);
+    color: var(--azul-claro);
+    border: 1px solid rgba(45,106,159,0.3);
+  }
+
+  .badge-estigmatizacion {
+    background: rgba(181,52,26,0.35);
+    color: #ff8870;
+    border: 1px solid rgba(181,52,26,0.5);
+    font-weight: 500;
+  }
+
+  .badge-promocionfuncionaria {
+    background: rgba(139,105,20,0.3);
+    color: #e8c050;
+    border: 1px solid rgba(139,105,20,0.4);
+  }
+
+  /* CONTRADICCION */
+  .contradiccion {
+    font-size: 0.75rem;
+    color: var(--rojo-claro);
+    margin-top: 0.4rem;
+    font-style: italic;
+  }
+
+  /* SECCIÓN ANÁLISIS */
+  .analisis {
+    margin: 3rem 0;
+  }
+
+  .analisis-title {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.6rem;
+    color: var(--arena-claro);
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(200,150,12,0.2);
+    padding-bottom: 1rem;
+  }
+
+  .analisis-title em { color: var(--rojo-claro); font-style: italic; }
+
+  .patrones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .patron {
+    background: var(--gris-oscuro);
+    border: 1px solid rgba(200,150,12,0.12);
+    padding: 1.3rem;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .patron::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--patron-color, var(--oro));
+  }
+
+  .patron.rojo { --patron-color: var(--rojo); }
+  .patron.azul { --patron-color: var(--azul-claro); }
+  .patron.verde { --patron-color: var(--verde-claro); }
+  .patron.oro { --patron-color: var(--oro); }
+
+  .patron-num {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: rgba(200,150,12,0.15);
+    position: absolute;
+    top: 0.3rem;
+    right: 0.8rem;
+    line-height: 1;
+  }
+
+  .patron-title {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.95rem;
+    color: var(--arena-claro);
+    margin-bottom: 0.6rem;
+  }
+
+  .patron-desc {
+    font-size: 0.8rem;
+    color: var(--arena);
+    line-height: 1.6;
+  }
+
+  /* CONCLUSIÓN */
+  .conclusion {
+    background: var(--gris-oscuro);
+    border: 1px solid rgba(200,150,12,0.2);
+    padding: 2rem;
+    border-radius: 2px;
+    margin: 2rem 0;
+  }
+
+  .conclusion-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--oro);
+    margin-bottom: 1rem;
+  }
+
+  .conclusion h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.2rem;
+    color: var(--arena-claro);
+    margin-bottom: 0.8rem;
+  }
+
+  .conclusion p {
+    font-size: 0.85rem;
+    color: var(--arena);
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+  }
+
+  .conclusion p:last-child { margin-bottom: 0; }
+
+  /* CRONOLOGÍA */
+  .cronologia {
+    margin: 2rem 0;
+  }
+
+  .crono-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    align-items: start;
+  }
+
+  .crono-fecha {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--oro);
+    text-align: right;
+    padding-top: 0.15rem;
+  }
+
+  .crono-contenido {
+    background: var(--gris-oscuro);
+    border-left: 3px solid var(--crono-color, var(--gris-claro));
+    padding: 0.8rem 1rem;
+  }
+
+  .crono-contenido.institucional { --crono-color: var(--rojo); }
+  .crono-contenido.comunitario { --crono-color: var(--verde-claro); }
+  .crono-contenido.mediatico { --crono-color: var(--oro); }
+  .crono-contenido.nacional { --crono-color: var(--azul-claro); }
+
+  .crono-titulo {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--arena-claro);
+    margin-bottom: 0.3rem;
+  }
+
+  .crono-detalle {
+    font-size: 0.78rem;
+    color: var(--arena);
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: rgba(200,150,12,0.3);
+    text-transform: uppercase;
+    border-top: 1px solid rgba(200,150,12,0.1);
+    margin-top: 3rem;
+  }
+
+  @media (max-width: 600px) {
+    .crono-item { grid-template-columns: 1fr; }
+    .crono-fecha { text-align: left; }
+    header { padding: 2rem 1rem 1.5rem; }
+    main { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-label">Monitor de cobertura mediática · PTAR Riohacha · Arroyo Guerrero · La Guajira</div>
+    <h1>La narrativa que los medios <em>construyeron</em><br>sobre la PTAR de Riohacha</h1>
+    <p class="header-desc">Compilación y análisis de toda la cobertura mediática disponible sobre el proyecto de Planta de Tratamiento de Aguas Residuales de Riohacha en Arroyo Guerrero. El objetivo es documentar la imagen que los medios locales y nacionales han construido, y contrastarla con la verdad documental oficial.</p>
+    <div class="stats-row">
+      <div class="stat">
+        <span class="stat-num">15+</span>
+        <span class="stat-label">Piezas identificadas</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">8</span>
+        <span class="stat-label">Medios distintos</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">2022–2026</span>
+        <span class="stat-label">Período cubierto</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">0</span>
+        <span class="stat-label">Rectificaciones emitidas</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="alerta" style="margin-top: 2rem;">
+  <div class="alerta-label">Contradicción central documentada</div>
+  <p>Los medios locales han reproducido una narrativa de avance y progreso del proyecto PTAR. Sin embargo, el 24 de abril de 2026, <strong>ANLA (radicado 20262300415471)</strong> confirmó que no existe ningún proyecto PTAR Riohacha en sus registros, y el <strong>Ministerio de Vivienda (radicado 2026EE0022391)</strong> confirmó que el proyecto no tiene viabilidad, no tiene recursos asignados y que las declaraciones públicas sobre su avance "no constituyen decisiones institucionales ni producen efectos jurídicos vinculantes." Las comunidades indígenas Wayuú de Arroyo Guerrero no son responsables de estas contradicciones.</p>
+</div>
+
+<main>
+
+  <!-- FILTROS -->
+  <div class="filtros">
+    <span class="filtro-label">Filtrar por tipo:</span>
+    <button class="filtro-btn active" onclick="filtrar('todos')">Todos</button>
+    <button class="filtro-btn" onclick="filtrar('proinstitucional')">Pro-institucional</button>
+    <button class="filtro-btn" onclick="filtrar('promocion')">Promoción funcionaria</button>
+    <button class="filtro-btn" onclick="filtrar('tecnico')">Técnico / académico</button>
+    <button class="filtro-btn" onclick="filtrar('estigmatizacion')">Estigmatización</button>
+  </div>
+
+  <!-- TABLA PRINCIPAL -->
+  <div class="tabla-container">
+    <table id="tabla-noticias">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Medio</th>
+          <th>Título / Enlace</th>
+          <th>Tipo</th>
+          <th>Narrativa central</th>
+          <th>Contradicción documental</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr data-tipo="proinstitucional">
+          <td>Jun 2022</td>
+          <td class="medio">Guajira Gráfica</td>
+          <td class="titulo-noticia"><a href="https://www.guajiragrafica.net/2022/06/03/100-dias-de-esepgua-el-agua-es-la-fuente-que-nos-mueve/" target="_blank">100 días de ESEPGUA: el agua es la fuente que nos mueve</a></td>
+          <td><span class="badge badge-proinstitucional">Pro-institucional</span></td>
+          <td>ESEPGUA inicia diseños de la PTAR en sus primeros 100 días de gestión. Presentado como logro de gestión exitosa.</td>
+          <td class="contradiccion">En 2026 ANLA confirmó que no existe expediente ambiental ni proyecto registrado.</td>
+        </tr>
+
+        <tr data-tipo="proinstitucional">
+          <td>Jun 2023</td>
+          <td class="medio">Guajira News</td>
+          <td class="titulo-noticia"><a href="https://www.guajiranews.com/destacadas/esepgua-hace-realidad-proyecto-de-agua-potable-en-paraver-en-zona-rural-de-riohacha/" target="_blank">Esepgua hace realidad proyecto de agua potable en Paraver</a></td>
+          <td><span class="badge badge-proinstitucional">Pro-institucional</span></td>
+          <td>Cobertura de entrega de microacueductos que construye imagen positiva de Andreina García como gestora.</td>
+          <td class="contradiccion">—</td>
+        </tr>
+
+        <tr data-tipo="proinstitucional">
+          <td>Jun 2023</td>
+          <td class="medio">Tuuputchika</td>
+          <td class="titulo-noticia"><a href="https://www.tuuputchika.com/2023/06/05/esepgua-construye-centro-de-abastecimiento-de-agua-en-paraver-zona-rural-de-riohacha/" target="_blank">Esepgua construye centro de abastecimiento de agua en Paraver</a></td>
+          <td><span class="badge badge-proinstitucional">Pro-institucional</span></td>
+          <td>Reproducción acrítica de comunicado de ESEPGUA. Sin ningún contrapeso editorial.</td>
+          <td class="contradiccion">—</td>
+        </tr>
+
+        <tr data-tipo="proinstitucional">
+          <td>Jun 2023</td>
+          <td class="medio">La Guajira Hoy</td>
+          <td class="titulo-noticia"><a href="https://laguajirahoy.com/riohacha/con-cinco-proyectos-de-agua-cuenta-el-distrito.html" target="_blank">Con cinco proyectos de agua cuenta el Distrito</a></td>
+          <td><span class="badge badge-proinstitucional">Pro-institucional</span></td>
+          <td>ESEPGUA anuncia cinco proyectos de agua para Riohacha incluyendo avances hacia la PTAR.</td>
+          <td class="contradiccion">—</td>
+        </tr>
+
+        <tr data-tipo="promocion">
+          <td>Ene 2024</td>
+          <td class="medio">Revista EntoRnos</td>
+          <td class="titulo-noticia"><a href="https://revistaentornos.com/andreina-garcia-se-consolida-como-una-de-las-mejores-ejecutivas-en-el-sector-de-servicios-publicos/" target="_blank">Andreína García, se consolida como una de las mejores ejecutivas en el sector de Servicios Públicos</a></td>
+          <td><span class="badge badge-promocionfuncionaria">Promoción funcionaria</span></td>
+          <td>Perfil laudatorio de Andreina García. Presenta su gestión como modelo de liderazgo sin ningún cuestionamiento.</td>
+          <td class="contradiccion">La carta 2024EPG1069 firmada por García afirmó que el proyecto tenía permisos que en 2026 ANLA y Ministerio negaron que existieran.</td>
+        </tr>
+
+        <tr data-tipo="proinstitucional">
+          <td>Mar 2024</td>
+          <td class="medio">EstáSucediendo</td>
+          <td class="titulo-noticia">Esepgua presentó los diseños definitivos de la nueva PTAR para Riohacha, sigue la gestión de los recursos</td>
+          <td><span class="badge badge-proinstitucional">Pro-institucional</span></td>
+          <td>Anuncia "diseños definitivos" como logro concreto. Sugiere proyecto avanzado y listo para financiación.</td>
+          <td class="contradiccion">El Ministerio de Vivienda confirmó en abril 2026 que el proyecto está en "etapa preliminar de evaluación" sin viabilidad ni recursos.</td>
+        </tr>
+
+        <tr data-tipo="proinstitucional">
+          <td>May 2024</td>
+          <td class="medio">Revista EntoRnos</td>
+          <td class="titulo-noticia"><a href="https://revistaentornos.com/el-concejo-distrital-prueba-el-plan-de-desarrollo-riohacha-socialmente-sana-y-sostenible-2024-2027/" target="_blank">El Concejo Distrital aprueba el Plan de Desarrollo "Riohacha Socialmente Sana y Sostenible 2024-2027"</a></td>
+          <td><span class="badge badge-proinstitucional">Pro-institucional</span></td>
+          <td>PTAR incluida como proyecto prioritario del Plan de Desarrollo. Presentada como parte de la hoja de ruta institucional.</td>
+          <td class="contradiccion">—</td>
+        </tr>
+
+        <tr data-tipo="proinstitucional">
+          <td>May 2024</td>
+          <td class="medio">Tuuputchika</td>
+          <td class="titulo-noticia"><a href="https://www.tuuputchika.com/concejo-distrital-aprueba-el-plan-de-desarrollo-de-riohacha-2024-2027/" target="_blank">Concejo Distrital aprueba el Plan de Desarrollo de Riohacha 2024-2027</a></td>
+          <td><span class="badge badge-proinstitucional">Pro-institucional</span></td>
+          <td>PTAR presentada como proyecto priorizado en el plan de desarrollo aprobado unánimemente.</td>
+          <td class="contradiccion">—</td>
+        </tr>
+
+        <tr data-tipo="tecnico">
+          <td>May 2024</td>
+          <td class="medio">Uniguajira</td>
+          <td class="titulo-noticia"><a href="https://uniguajira.edu.co/uniguajira-presenta-consideraciones-tecnicas-y-cientificas-para-el-tratamiento-de-aguas-residuales-en-riohacha/" target="_blank">Uniguajira presenta consideraciones técnicas y científicas para el tratamiento de aguas residuales en Riohacha</a></td>
+          <td><span class="badge badge-tecnico">Técnico / académico</span></td>
+          <td>Estudio académico que señala que Arroyo Guerrero es un punto de vertimiento <strong>inviable</strong> porque no tiene flujo permanente y tiene alta salinidad.</td>
+          <td class="contradiccion">Este documento académico respalda la posición de las comunidades. Fue ignorado por los medios que cubrieron el proyecto como viable.</td>
+        </tr>
+
+        <tr data-tipo="proinstitucional">
+          <td>Mar 2025</td>
+          <td class="medio">La Guajira Hoy</td>
+          <td class="titulo-noticia"><a href="https://laguajirahoy.com/la-guajira/280-familias-de-riohacha-reciben-cuatro-microacueductos-gracias-a-la-gobernacion.html" target="_blank">280 familias de Riohacha reciben cuatro microacueductos</a></td>
+          <td><span class="badge badge-proinstitucional">Pro-institucional</span></td>
+          <td>Cobertura de entrega de microacueductos con Andreina García, alcalde y gobernador. Construye imagen de equipo institucional unido.</td>
+          <td class="contradiccion">—</td>
+        </tr>
+
+        <tr data-tipo="promocion">
+          <td>Abr 2026</td>
+          <td class="medio">Guajira News</td>
+          <td class="titulo-noticia"><a href="https://guajiranews.com/actualidad-politica/andreina-garcia-gerente-de-esepgua-participara-como-conferencista-en-congreso-mundial-de-mujeres-lideres-en-harvard/" target="_blank">Andreina García, gerente de Esepgua participará como conferencista en congreso mundial de mujeres líderes en Harvard</a></td>
+          <td><span class="badge badge-promocionfuncionaria">Promoción funcionaria</span></td>
+          <td>Cobertura exclusivamente laudatoria. Construye imagen internacional de Andreina García días antes de que el Ministerio de Vivienda confirme que el proyecto no tiene viabilidad.</td>
+          <td class="contradiccion">Publicada días antes de que ANLA y Ministerio de Vivienda confirmaran la inexistencia de expediente ambiental y falta de viabilidad del proyecto.</td>
+        </tr>
+
+        <tr data-tipo="proinstitucional">
+          <td>Abr 2026</td>
+          <td class="medio">Guajira News</td>
+          <td class="titulo-noticia"><a href="https://guajiranews.com/actualidad-politica/proyecto-de-la-ptar-de-riohacha-esta-listo-ante-el-minvivienda-alcalde-genaro-redondo-choles/" target="_blank">"Proyecto de la PTAR de Riohacha está listo ante el MinVivienda": alcalde Genaro Redondo Choles</a></td>
+          <td><span class="badge badge-proinstitucional">Pro-institucional</span></td>
+          <td>El alcalde afirma que el proyecto "ya cumple con todos los requisitos exigidos por el Gobierno nacional." El medio reproduce sin contrastar.</td>
+          <td class="contradiccion">El Ministerio de Vivienda confirmó el 24 de abril que el proyecto no tiene concepto de viabilidad ni aval técnico. La afirmación del alcalde es falsa.</td>
+        </tr>
+
+        <tr data-tipo="proinstitucional">
+          <td>Abr 2026</td>
+          <td class="medio">El Informador</td>
+          <td class="titulo-noticia"><a href="https://www.elinformador.com.co/index.php/general/79-nacional/350275-ptar-de-riohacha-avanza-y-promete-transformar-el-saneamiento-basico-en-la-ciudad" target="_blank">PTAR de Riohacha avanza y promete transformar el saneamiento básico en la ciudad</a></td>
+          <td><span class="badge badge-proinstitucional">Pro-institucional</span></td>
+          <td>Título afirma que el proyecto "avanza." Señala que "ya superó su fase técnica ante el Gobierno." No consulta a comunidades indígenas.</td>
+          <td class="contradiccion">El Ministerio de Vivienda dice que está en "etapa preliminar de evaluación" sin viabilidad. La afirmación de que "superó la fase técnica" es incorrecta.</td>
+        </tr>
+
+        <tr data-tipo="proinstitucional">
+          <td>Abr 2026</td>
+          <td class="medio">El Informador</td>
+          <td class="titulo-noticia"><a href="https://www.elinformador.com.co/index.php/region-caribe/77-la-guajira/350748-planta-de-tratamiento-de-aguas-residuales-apunta-a-mejorar-el-saneamiento-en-la-ciudad" target="_blank">Planta de Tratamiento de Aguas Residuales apunta a mejorar el saneamiento en la ciudad</a></td>
+          <td><span class="badge badge-proinstitucional">Pro-institucional</span></td>
+          <td>Repite que el proyecto "ya cumplió con los requisitos técnicos exigidos por el Ministerio de Vivienda." Sin mención de comunidades indígenas ni de contradicciones.</td>
+          <td class="contradiccion">Directamente contradecida por el Ministerio de Vivienda (radicado 2026EE0022391) del mismo período.</td>
+        </tr>
+
+        <tr data-tipo="proinstitucional">
+          <td>23 Abr 2026</td>
+          <td class="medio">Tuuputchika</td>
+          <td class="titulo-noticia"><a href="https://www.tuuputchika.com/ptar-de-riohacha-se-encuentra-en-etapa-de-planeacion-estudios-y-disenos/" target="_blank">Ptar de Riohacha en etapa de planeación, estudios y diseños</a></td>
+          <td><span class="badge badge-proinstitucional">Pro-institucional</span></td>
+          <td>Reproduce literalmente la comunicación de ESEPGUA a la comunidad. No contrasta con CORPOGUAJIRA, ANLA ni Ministerio. No incluye posición de autoridades Wayuú. Solicitud de rectificación enviada. No respondida.</td>
+          <td class="contradiccion">Omite: inexistencia de expediente ambiental (CORPOGUAJIRA), contradicción documental 2024EPG1069 vs 2026EPG0560, sentencia T-556/2017 y riesgo de lideresas.</td>
+        </tr>
+
+        <tr data-tipo="estigmatizacion">
+          <td>Abr 2026</td>
+          <td class="medio">Redes sociales / Facebook</td>
+          <td class="titulo-noticia">Comentarios públicos en publicaciones sobre la PTAR culpando a comunidades Wayuú del bloqueo del proyecto</td>
+          <td><span class="badge badge-estigmatizacion">Estigmatización</span></td>
+          <td>"Las comunidades deben doblegar ante el bien general." "Los Wayuú no han dejado progresar la misma Guajira." Comentarios con nombres identificables y reacciones públicas.</td>
+          <td class="contradiccion">Las dificultades del proyecto tienen origen en fallas institucionales documentadas, no en la acción de las comunidades.</td>
+        </tr>
+
+        <tr data-tipo="proinstitucional">
+          <td>24 Abr 2026</td>
+          <td class="medio">Guajira News</td>
+          <td class="titulo-noticia"><a href="https://guajiranews.com/actualidad-politica/el-liderazgo-de-andreina-garcia-llega-a-harvard-la-guajira-presente-en-el-congreso-mundial-de-mujeres-lideres/" target="_blank">El liderazgo de Andreina García llega a Harvard: La Guajira presente en el Congreso Mundial de Mujeres Líderes</a></td>
+          <td><span class="badge badge-promocionfuncionaria">Promoción funcionaria</span></td>
+          <td>Publicada el mismo día en que ANLA y Ministerio de Vivienda emitieron respuestas contradiciendo la narrativa oficial sobre el proyecto.</td>
+          <td class="contradiccion">Publicada el mismo día en que ANLA confirmó que el proyecto PTAR Riohacha no existe en sus registros.</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ANÁLISIS DE PATRONES -->
+  <div class="analisis">
+    <h2 class="analisis-title">Patrones de la <em>narrativa mediática</em></h2>
+
+    <div class="patrones">
+      <div class="patron rojo">
+        <div class="patron-num">1</div>
+        <div class="patron-title">Reproducción acrítica de versión oficial</div>
+        <p class="patron-desc">La totalidad de la cobertura local reproduce comunicados de ESEPGUA, alcaldía o gobernación sin contrastar con documentación de CORPOGUAJIRA, ANLA o Ministerio de Vivienda. Ningún medio verificó de forma independiente el estado real del proyecto.</p>
+      </div>
+
+      <div class="patron rojo">
+        <div class="patron-num">2</div>
+        <div class="patron-title">Invisibilización de comunidades Wayuú</div>
+        <p class="patron-desc">Con excepción parcial de Tuuputchika, ninguna pieza mediática incluye la posición de las autoridades tradicionales de Arroyo Guerrero como actores con derechos propios. Las comunidades aparecen como receptoras pasivas de información institucional.</p>
+      </div>
+
+      <div class="patron oro">
+        <div class="patron-num">3</div>
+        <div class="patron-title">Promoción sistemática de Andreina García</div>
+        <p class="patron-desc">Múltiples piezas construyen la imagen de Andreina García como líder visionaria — Washington, Harvard, congresos internacionales — sin ningún cuestionamiento sobre las contradicciones documentales del proyecto que dirige.</p>
+      </div>
+
+      <div class="patron azul">
+        <div class="patron-num">4</div>
+        <div class="patron-title">Omisión de documentación técnica adversa</div>
+        <p class="patron-desc">El estudio de Uniguajira (2024) señala que Arroyo Guerrero es un punto de vertimiento inviable técnicamente. Este documento nunca fue mencionado en la cobertura pro-institucional del proyecto.</p>
+      </div>
+
+      <div class="patron rojo">
+        <div class="patron-num">5</div>
+        <div class="patron-title">Estigmatización reactiva</div>
+        <p class="patron-desc">Cuando el Ministerio de Vivienda y ANLA confirmaron que el proyecto no tiene viabilidad (24 abril 2026), la narrativa en redes sociales giró inmediatamente hacia culpar a las comunidades Wayuú. Patrón de desvío de responsabilidad institucional.</p>
+      </div>
+
+      <div class="patron verde">
+        <div class="patron-num">6</div>
+        <div class="patron-title">Rectificaciones ignoradas</div>
+        <p class="patron-desc">Las comunidades presentaron derecho de rectificación formal a Tuuputchika con 14 anexos documentales y copia a CIDH, Escazú, OHCHR y Defensoría. El medio no respondió ni rectificó.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CRONOLOGÍA -->
+  <div class="analisis">
+    <h2 class="analisis-title">Cronología: <em>narrativa vs. verdad documental</em></h2>
+
+    <div class="cronologia">
+
+      <div class="crono-item">
+        <div class="crono-fecha">Jun 2022</div>
+        <div class="crono-contenido mediatico">
+          <div class="crono-titulo">Medios: ESEPGUA inicia diseños de la PTAR</div>
+          <div class="crono-detalle">Primera cobertura positiva. Andreina García presentada como gestora de la solución histórica al problema de saneamiento de Riohacha.</div>
+        </div>
+      </div>
+
+      <div class="crono-item">
+        <div class="crono-fecha">2023–2024</div>
+        <div class="crono-contenido mediatico">
+          <div class="crono-titulo">Medios: Avances continuos, diseños definitivos, proyecto "listo"</div>
+          <div class="crono-detalle">Cobertura creciente que consolida imagen de proyecto avanzado. Múltiples medios reproducen declaraciones institucionales sin verificación.</div>
+        </div>
+      </div>
+
+      <div class="crono-item">
+        <div class="crono-fecha">Sep 2024</div>
+        <div class="crono-contenido institucional">
+          <div class="crono-titulo">ESEPGUA afirma ante Ministerio que el proyecto tiene todos los permisos</div>
+          <div class="crono-detalle">Carta 2024EPG1069: ESEPGUA certifica que el proyecto incluye licencia ambiental, permiso de vertimiento, concesión de aguas y todos los soportes requeridos.</div>
+        </div>
+      </div>
+
+      <div class="crono-item">
+        <div class="crono-fecha">2024–2026</div>
+        <div class="crono-contenido comunitario">
+          <div class="crono-titulo">Comunidades: más de 250 peticiones, acciones jurídicas e internacionales</div>
+          <div class="crono-detalle">Las comunidades Wayuú de Arroyo Guerrero construyen expediente documental ante CORPOGUAJIRA, ANLA, Ministerio, Defensoría, CIDH, Escazú y OHCHR.</div>
+        </div>
+      </div>
+
+      <div class="crono-item">
+        <div class="crono-fecha">Abr 2026</div>
+        <div class="crono-contenido mediatico">
+          <div class="crono-titulo">Medios: "Proyecto listo ante MinVivienda" — Andreina García en Harvard</div>
+          <div class="crono-detalle">Tuuputchika, El Informador y Guajira News publican cobertura de avance y éxito del proyecto y de la funcionaria. Sin consultar a comunidades ni verificar con ANLA.</div>
+        </div>
+      </div>
+
+      <div class="crono-item">
+        <div class="crono-fecha">24 Abr 2026</div>
+        <div class="crono-contenido nacional">
+          <div class="crono-titulo">ANLA y Ministerio de Vivienda contradicen la narrativa oficial</div>
+          <div class="crono-detalle">ANLA: no existe PTAR Riohacha en sus registros. Ministerio: el proyecto está en etapa preliminar sin viabilidad, sin recursos, sin aval técnico. Las declaraciones públicas sobre su avance "no producen efectos jurídicos."</div>
+        </div>
+      </div>
+
+      <div class="crono-item">
+        <div class="crono-fecha">24–25 Abr 2026</div>
+        <div class="crono-contenido institucional">
+          <div class="crono-titulo">Redes sociales: culpa a comunidades Wayuú</div>
+          <div class="crono-detalle">Inmediatamente después de la confirmación de ANLA y Ministerio, comentarios públicos en Facebook culpan a las comunidades indígenas del fracaso del proyecto. Patrón de estigmatización reactiva documentado.</div>
+        </div>
+      </div>
+
+      <div class="crono-item">
+        <div class="crono-fecha">25 Abr 2026</div>
+        <div class="crono-contenido comunitario">
+          <div class="crono-titulo">Comunidades: Alerta urgente al Presidente de la República</div>
+          <div class="crono-detalle">Con copia a CIDH, Escazú, OHCHR, Fiscalía, Procuraduría y Defensoría. Documentan la cronología completa, la verdad documental y el riesgo de estigmatización y amenazas contra lideresas.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CONCLUSIÓN -->
+  <div class="conclusion">
+    <div class="conclusion-label">Conclusión del análisis mediático</div>
+    <h3>Lo que la cobertura mediática construyó — y lo que los documentos oficiales desmienten</h3>
+    <p>Durante cuatro años, los medios locales de La Guajira construyeron una narrativa consistente: la PTAR de Riohacha es un proyecto avanzado, técnicamente sólido, liderado por una funcionaria ejemplar, que solo requería superar algunos trámites administrativos para ejecutarse. En esa narrativa, las comunidades indígenas de Arroyo Guerrero aparecían, cuando aparecían, como actores secundarios o como obstáculos.</p>
+    <p>El 24 de abril de 2026, dos instituciones nacionales del Estado colombiano — ANLA y el Ministerio de Vivienda — desmintieron esa narrativa con documentos oficiales y radicados verificables. El proyecto no tiene expediente ambiental. No tiene viabilidad. No tiene recursos. Las declaraciones públicas sobre su avance no tienen efectos jurídicos.</p>
+    <p>Las comunidades indígenas Wayuú de Arroyo Guerrero no son responsables de estas contradicciones. Lo son quienes construyeron un expediente que no resistió la verificación institucional, y los medios que lo presentaron como verdad durante cuatro años sin contrastar las fuentes.</p>
+    <p><strong style="color: var(--arena-claro);">La ciudadanía de Riohacha tiene derecho a conocer esta verdad completa.</strong></p>
+  </div>
+
+</main>
+
+<footer>
+  Monitor de cobertura mediática PTAR Riohacha · Arroyo Guerrero · Comunidades Wayuú · La Guajira, Colombia · Abril 2026
+</footer>
+
+<script>
+function filtrar(tipo) {
+  const filas = document.querySelectorAll('#tabla-noticias tbody tr');
+  const botones = document.querySelectorAll('.filtro-btn');
+
+  botones.forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+
+  filas.forEach(fila => {
+    if (tipo === 'todos' || fila.dataset.tipo === tipo) {
+      fila.style.display = '';
+    } else {
+      fila.style.display = 'none';
+    }
+  });
+}
+</script>
+
+</body>
+</html>

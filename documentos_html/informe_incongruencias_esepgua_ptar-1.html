@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Informe técnico jurídico sobre incongruencias internas del expediente ESEPGUA PTAR Riohacha</title>
+<style>
+:root {
+  --bg: #f7f5f0;
+  --paper: #ffffff;
+  --ink: #202124;
+  --muted: #5f6368;
+  --line: #d9d4c7;
+  --soft: #efe8d8;
+  --critical: #7a1f1f;
+  --critical-bg: #fdecec;
+  --high: #8a4b00;
+  --high-bg: #fff1dc;
+  --mid: #4a5f1f;
+  --mid-bg: #eef6df;
+  --low: #24536b;
+  --low-bg: #e5f3f8;
+  --accent: #315c51;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.55;
+}
+header {
+  background: linear-gradient(135deg, #253f39, #426e61);
+  color: white;
+  padding: 46px 34px;
+}
+header h1 {
+  margin: 0 0 12px;
+  font-size: 34px;
+  line-height: 1.15;
+}
+header p {
+  margin: 8px 0 0;
+  max-width: 1100px;
+  font-size: 16px;
+}
+main {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 28px;
+}
+section {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 26px;
+  margin: 22px 0;
+  box-shadow: 0 8px 24px rgba(0,0,0,.05);
+}
+h2 {
+  margin-top: 0;
+  color: var(--accent);
+  font-size: 24px;
+}
+h3 {
+  color: #31443f;
+  margin-top: 26px;
+  font-size: 19px;
+}
+p { margin: 10px 0; }
+.small { color: var(--muted); font-size: 13px; }
+.notice {
+  background: #f4efe2;
+  border-left: 6px solid var(--accent);
+  padding: 16px 18px;
+  border-radius: 12px;
+  margin: 14px 0;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+.card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+  background: #fffdf8;
+}
+.card .num {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--accent);
+}
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .2px;
+}
+.critico { background: var(--critical-bg); color: var(--critical); }
+.alto { background: var(--high-bg); color: var(--high); }
+.medio { background: var(--mid-bg); color: var(--mid); }
+.formal { background: var(--low-bg); color: var(--low); }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0 24px;
+  font-size: 14px;
+}
+th, td {
+  border: 1px solid var(--line);
+  padding: 10px;
+  vertical-align: top;
+}
+th {
+  background: var(--soft);
+  color: #263b35;
+  text-align: left;
+}
+tr:nth-child(even) td { background: #fffdf8; }
+blockquote {
+  margin: 12px 0;
+  padding: 12px 16px;
+  border-left: 5px solid #8f9f91;
+  background: #f8faf5;
+  color: #313131;
+}
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: 12px;
+  font-weight: 800;
+  color: #6b6b6b;
+}
+hr {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 24px 0;
+}
+@media print {
+  body { background: white; }
+  main { padding: 0; }
+  section { box-shadow: none; page-break-inside: avoid; }
+  header { border-radius: 0; }
+}
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; }
+  header h1 { font-size: 26px; }
+  main { padding: 14px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">Lectura interna del documento aportado</div>
+  <h1>Informe técnico jurídico sobre incongruencias internas del expediente ESEPGUA PTAR Riohacha</h1>
+  <p>Documento base Anexos unidos_compressed.pdf. Lectura limitada al contenido visible del PDF entregado. No incorpora fuentes externas ni documentos que no estén dentro del archivo.</p>
+  <p>Objeto del informe identificar hechos, omisiones, contradicciones, vacíos de trazabilidad, riesgos jurídicos y valor probatorio interno del expediente.</p>
+</header>
+
+<main>
+
+<section>
+<h2>1. Alcance y advertencia de método</h2>
+<p>Este informe analiza exclusivamente el PDF de 47 páginas identificado como documento con anexos de ESEPGUA. La lectura se basa en el texto extraíble y en la organización documental interna del archivo.</p>
+<p>No se afirma que una contradicción interna equivalga por sí sola a ilegalidad, falsedad o responsabilidad disciplinaria. Lo que se identifica es riesgo documental, inconsistencia de versión, vacío de soporte, debilidad probatoria o posible punto de ataque jurídico.</p>
+<div class="notice">
+<p>Conclusión central del informe. El expediente muestra una tensión muy fuerte entre tres líneas narrativas de ESEPGUA. Una línea sostiene que el proyecto estaba en estudios y diseños con localización, predio y vertimiento asociados a Arroyo Guerrero. Otra línea afirma que no había decisión definitiva, ni obra, ni adquisición predial, ni acto de localización. Una tercera línea, ya en abril de 2026, dice que el proyecto no será en Arroyo Guerrero y que se busca un nuevo lugar. Esa evolución no está explicada de forma técnica completa dentro del documento.</p>
+</div>
+</section>
+
+<section>
+<h2>2. Indicadores generales del expediente</h2>
+<div class="grid">
+  <div class="card"><div class="num">47</div><p>Páginas revisadas</p></div>
+  <div class="card"><div class="num">13</div><p>Bloques documentales principales identificados</p></div>
+  <div class="card"><div class="num">9</div><p>Ejes de incongruencia relevantes</p></div>
+  <div class="card"><div class="num">4</div><p>Niveles de gravedad usados en la matriz</p></div>
+</div>
+<table>
+<thead><tr><th>Nivel</th><th>Sentido usado en este informe</th></tr></thead>
+<tbody>
+<tr><td><span class="badge critico">Crítico</span></td><td>Incongruencia que puede afectar viabilidad, consulta previa, ubicación, componente ambiental o continuidad del proyecto.</td></tr>
+<tr><td><span class="badge alto">Alto</span></td><td>Vacío o contradicción relevante que exige explicación documental antes de avanzar.</td></tr>
+<tr><td><span class="badge medio">Medio</span></td><td>Problema de coherencia, trazabilidad o suficiencia de información que debilita la respuesta institucional.</td></tr>
+<tr><td><span class="badge formal">Formal</span></td><td>Error de redacción, fecha, nombre, numeración o duplicidad que no decide el fondo, pero afecta seriedad y control documental.</td></tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>3. Mapa documental página por página</h2>
+<table>
+<thead><tr><th>Páginas</th><th>Documento o contenido</th><th>Valor para el caso</th><th>Observación crítica</th></tr></thead>
+<tbody>
+<tr><td>1 a 3</td><td>Oficio ESEPGUA 2026EPG0676 dirigido a Defensoría Delegada para Derechos Colectivos y Ambiente</td><td>Estado actual declarado en abril de 2026</td><td>Reconoce búsqueda de nuevo predio, oposición comunitaria, ausencia de diseños de detalle aprobados, ausencia de cierre técnico del MVCT y que el proyecto ya no será en Arroyo Guerrero.</td></tr>
+<tr><td>4</td><td>Oficio 2026EPG0090 al alcalde de Riohacha sobre pago de liquidación para actualización del PSMV</td><td>Prueba gestión del PSMV</td><td>La actualización del PSMV aparece como requisito indispensable para continuar trámites ante Corpoguajira.</td></tr>
+<tr><td>5</td><td>Liquidación Corpoguajira 202512243600068102 para evaluación del PSMV</td><td>Soporte financiero y procedimental del trámite ambiental del PSMV</td><td>El inicio formal del proceso depende de pago y radicación de documentos. Esto debilita cualquier idea de PSMV actualizado y aprobado.</td></tr>
+<tr><td>6</td><td>Oficio 2025EPG0010 de 22 de enero de 2025</td><td>Primera solicitud de actualización del PSMV al Distrito</td><td>Dice que el PSMV vigente hasta 2027 debe actualizarse para alinear acciones con necesidades actuales.</td></tr>
+<tr><td>7</td><td>Oficio 2025EPG0689 de mayo de 2025</td><td>Reiteración de actualización del PSMV</td><td>Hay problema de fecha interna. En algunos apartados aparece como 25 de mayo, en la página visible figura 15 de mayo y en otra mención se alude al 5 de mayo.</td></tr>
+<tr><td>8</td><td>Oficio 2025EPG0842 de 9 de junio de 2025</td><td>Tercera reiteración de actualización del PSMV</td><td>Reconoce que no se obtuvo respuesta del Distrito frente a requerimientos anteriores.</td></tr>
+<tr><td>9 a 10</td><td>Oficio Corpoguajira 20230126360001922 de 26 de enero de 2023</td><td>Concepto de no licencia ambiental</td><td>La no licencia se fundamenta en población de 126.103 habitantes. El propio oficio advierte que si la población iguala o supera 200.000 habitantes se requeriría licencia. También dice que si hay afectación o aprovechamiento de recurso natural se debe pedir permiso correspondiente.</td></tr>
+<tr><td>11 a 14</td><td>Derecho de petición comunitario sobre localización de la PTAR y páginas con firmas</td><td>Prueba de solicitud comunitaria temprana</td><td>Se pide lugar, nombre del terreno, coordenadas, estado de negociación y vendedor. La respuesta posterior reserva datos del vendedor.</td></tr>
+<tr><td>15 a 16</td><td>Respuesta ESEPGUA 2024EPG0950 de 8 de julio de 2024 a Clara Romero y Clarena Fonseca</td><td>Prueba de localización técnica inicial y dependencia de consulta previa</td><td>Dice que el predio más adecuado está cerca de Arroyo Guerrero, que Arroyo Guerrero es cuerpo de agua autorizado, que el lote 4 tiene mejor calificación y que si no hay acuerdo con comunidades se cambiará el lote.</td></tr>
+<tr><td>17 a 19</td><td>Respuesta 2025EPG1480 de 4 de noviembre de 2025 sobre reunión interinstitucional</td><td>Prueba de reunión técnica y narrativa de transparencia</td><td>Afirma que no hubo decisiones, que no se alteró localización y que no se requiere licencia ni permiso en etapa de estudios. Invita a socialización el 19 de noviembre de 2025.</td></tr>
+<tr><td>20 a 24</td><td>Acta manuscrita de reunión sobre PTAR Riohacha, Manaure y estado del PSMV</td><td>Soporte de coordinación interinstitucional</td><td>Presenta problemas de legibilidad, fecha de formato, fecha manuscrita y calidad documental. Su valor probatorio exige transcripción oficial.</td></tr>
+<tr><td>25 a 31</td><td>Respuesta 2025EPG0467 de 25 de marzo de 2025 sobre estudios ambientales y alternativas de vertimiento</td><td>Bloque más sensible sobre EIA, PSMV, trasvase, erosión y consulta</td><td>Afirma que se anexan EIA, EIA específico de trasvase, matriz de impactos, estudios hidrológicos, ecológicos y de biodiversidad. A la vez sostiene que la evaluación comparativa entre Arroyo Guerrero y Río Ranchería no aplica porque no requiere licencia.</td></tr>
+<tr><td>32 a 33</td><td>Respuesta 2026EPG0560 de 6 de abril de 2026 a requerimiento urgente de suspensión</td><td>Estado de proyecto declarado por ESEPGUA antes de la respuesta a Defensoría</td><td>Dice que no hay ejecución, intervención física, adquisición predial, acto definitivo de localización ni requisito habilitante de PSMV actualizado. También dice que no hay cronograma ni convocatoria formal para nuevas etapas de consulta.</td></tr>
+<tr><td>34 a 39</td><td>Respuesta 2026EPG0102 de 11 de enero de 2026 a traslado del Ministerio de Ambiente</td><td>Bloque clave sobre expediente técnico, no EIA, predio El Socorro lote 4, consulta ampliada y PSMV</td><td>Reconoce radicación técnica ante MVCT, productos no definitivos por observaciones, predio El Socorro lote 4, no necesidad de EIA según no licencia, ST 2211 con nuevas comunidades y PSMV no actualizado ni aprobado.</td></tr>
+<tr><td>40 a 45</td><td>Respuesta 2025EPG1153 de 19 de agosto de 2025 a comunicación dirigida a CIDH</td><td>Defensa institucional de ESEPGUA frente a acusaciones comunitarias</td><td>Sostiene que no hubo omisión de consulta previa, que la ampliación no era necesaria según comunicación de 23 de julio de 2024 y que la información no fue negada. Esa versión queda tensionada por la posterior ST 2211 de diciembre de 2025.</td></tr>
+<tr><td>46 a 47</td><td>Oficio 2026EPG0642 de 16 de abril de 2026 a Defensoría Regional Guajira</td><td>Remisión de respuestas y acciones constitucionales</td><td>El mismo documento aparece duplicado o casi duplicado. Menciona dos acciones constitucionales favorables a ESEPGUA sin individualizar completamente datos del proceso en el cuerpo visible.</td></tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>4. Cronología reconstruida dentro del PDF</h2>
+<table>
+<thead><tr><th>Fecha</th><th>Hecho documental</th><th>Página</th><th>Lectura</th></tr></thead>
+<tbody>
+<tr><td>16 de noviembre de 2022</td><td>ESEPGUA solicita a Corpoguajira concepto sobre necesidad de licencia ambiental.</td><td>9 y 36</td><td>La consulta ambiental se basa en información de población suministrada por el titular.</td></tr>
+<tr><td>26 de enero de 2023</td><td>Corpoguajira responde que no requiere licencia ambiental para población de 126.103 habitantes.</td><td>9 a 10</td><td>El mismo oficio advierte que si la población llega a 200.000 o más sería necesaria licencia y que permisos ambientales específicos pueden requerirse si hay afectación o uso de recursos naturales.</td></tr>
+<tr><td>23 de junio de 2023</td><td>ESEPGUA solicita al Ministerio del Interior determinar consulta previa.</td><td>16 y 40</td><td>Se reconoce que la consulta previa era un punto estructural antes de consolidar continuidad del proyecto.</td></tr>
+<tr><td>2 de agosto de 2023</td><td>Resolución ST 1112 determina consulta previa con El Jope e Irrachon.</td><td>16, 18, 30, 37, 40 a 41</td><td>El expediente usa esta resolución como soporte para limitar inicialmente las comunidades consultadas.</td></tr>
+<tr><td>14 de junio de 2024</td><td>Derecho de petición comunitario sobre localización, terreno, coordenadas y vendedor.</td><td>11 a 14</td><td>La comunidad activa tempranamente acceso a información sobre ubicación y predio.</td></tr>
+<tr><td>8 de julio de 2024</td><td>Respuesta 2024EPG0950 identifica cercanías de Arroyo Guerrero y lote 4 como mejor alternativa.</td><td>15 a 16</td><td>Se declara una selección técnica, ambiental, socioeconómica y predial, aunque sin adquisición de lote y condicionada a consulta.</td></tr>
+<tr><td>23 de julio de 2024</td><td>Comunicación del Ministerio del Interior, según ESEPGUA, habría dicho que no era necesaria ampliación de consulta.</td><td>18, 41, 44</td><td>Esa versión queda debilitada por la ST 2211 posterior que sí adiciona comunidades.</td></tr>
+<tr><td>5 de agosto de 2024</td><td>Protocolización de acuerdos con El Jope e Irrachon, según ESEPGUA.</td><td>37 y 41</td><td>No cierra el problema de comunidades adicionadas en 2025.</td></tr>
+<tr><td>22 de enero de 2025</td><td>Oficio 2025EPG0010 solicita actualización del PSMV.</td><td>6</td><td>PSMV vigente hasta 2027, pero declarado insuficiente para necesidades actuales.</td></tr>
+<tr><td>25 de marzo de 2025</td><td>Respuesta 2025EPG0467 afirma entrega de EIA, estudios de trasvase, matriz de impactos y soporte PSMV.</td><td>25 a 31</td><td>Choca con la afirmación posterior de que no era necesario EIA por no requerir licencia.</td></tr>
+<tr><td>31 de marzo a 2 de abril de 2025</td><td>Varias respuestas a Presidencia, MinAmbiente, ANLA y Gobernación sobre solicitudes de información.</td><td>34, 42, 44</td><td>Sirven como trazabilidad, pero no sustituyen la entrega de versiones definitivas y aprobadas.</td></tr>
+<tr><td>15 de mayo de 2025</td><td>Reiteración 2025EPG0689 sobre actualización del PSMV.</td><td>7</td><td>Hay inconsistencia de fecha interna en otros apartados.</td></tr>
+<tr><td>9 de junio de 2025</td><td>Oficio 2025EPG0842 reitera PSMV y dice no haber recibido respuesta del Distrito.</td><td>8</td><td>El avance del PSMV seguía bloqueado por falta de respuesta.</td></tr>
+<tr><td>19 de agosto de 2025</td><td>Respuesta a comunicación remitida a CIDH.</td><td>40 a 45</td><td>ESEPGUA defiende que no hubo omisión de consulta y que no debía ampliarse.</td></tr>
+<tr><td>4 de noviembre de 2025</td><td>Respuesta 2025EPG1480 sobre reunión interinstitucional.</td><td>17 a 19</td><td>Dice que no hubo decisiones y convoca socialización.</td></tr>
+<tr><td>16 de diciembre de 2025</td><td>Resolución ST 2211 adiciona comunidades Marbacella, Fortaleza, Paaspilon, Cachaca 3 Tuulia, La Piedra, Puente Guerrero y El Horno.</td><td>37</td><td>Punto de inflexión. La versión de no ampliación queda desactualizada.</td></tr>
+<tr><td>24 de diciembre de 2025</td><td>Corpoguajira emite liquidación para evaluación ambiental del PSMV.</td><td>5 y 39</td><td>El trámite ni siquiera inicia sin pago y documentos.</td></tr>
+<tr><td>11 de enero de 2026</td><td>Respuesta 2026EPG0102 reconoce ST 2211, PSMV no actualizado y productos técnicos no definitivos.</td><td>34 a 39</td><td>Documento clave para acreditar requisitos pendientes.</td></tr>
+<tr><td>17 de marzo de 2026</td><td>Oficio 2026EPG0090 pide al Distrito pago de liquidación ante Corpoguajira.</td><td>4</td><td>Confirma que el trámite del PSMV aún dependía de pago.</td></tr>
+<tr><td>6 de abril de 2026</td><td>Respuesta 2026EPG0560 dice que no hay obra, ni acto de ubicación, ni adquisición predial, ni PSMV habilitante.</td><td>32 a 33</td><td>Fortalece la tesis de que el proyecto no está listo para ejecución.</td></tr>
+<tr><td>16 de abril de 2026</td><td>Respuesta 2026EPG0642 a Defensoría Regional.</td><td>46 a 47</td><td>Remite respuestas y menciona acciones constitucionales favorables sin desarrollo completo.</td></tr>
+<tr><td>22 de abril de 2026</td><td>Respuesta 2026EPG0676 dice que se busca nuevo predio y que el proyecto ya no será en Arroyo Guerrero.</td><td>1 a 3</td><td>La mayor ruptura interna respecto de documentos previos que justificaban Arroyo Guerrero.</td></tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>5. Matriz principal de incongruencias</h2>
+<table>
+<thead><tr><th>No</th><th>Eje</th><th>Versión A dentro del PDF</th><th>Versión B dentro del PDF</th><th>Por qué importa</th><th>Gravedad</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Ubicación en Arroyo Guerrero</td><td>En 2024 se dice que el predio más adecuado está en cercanías de Arroyo Guerrero y que el lote 4 presenta la mejor calificación.</td><td>En abril de 2026 se dice que el proyecto ya no será en Arroyo Guerrero y que se busca nuevo lugar.</td><td>Si el lugar cambió, los estudios, predio, consulta, PSMV y análisis de impacto asociados al lugar inicial pierden fuerza o exigen rehacerse.</td><td><span class="badge critico">Crítico</span></td></tr>
+<tr><td>2</td><td>Predio definitivo</td><td>Se habla del lote 4 y luego del predio El Socorro lote 4 con certificado rural y compatibilidad POT.</td><td>También se dice que no hay adquisición predial ni acto administrativo que adopte localización definitiva.</td><td>El expediente no deja claro si existe ubicación técnica preferida, ubicación administrativa, o solo alternativas.</td><td><span class="badge alto">Alto</span></td></tr>
+<tr><td>3</td><td>Estudios de detalle</td><td>El contrato 009 de 2022 se presenta como estudios de alternativas y diseños de detalle. También se dice que el proyecto fue radicado ante MVCT con componentes técnicos.</td><td>En abril de 2026 se dice que no cuenta con estudios de diseño a nivel de detalle aprobados en su integridad y que los insumos están en ajuste y subsanación.</td><td>La expresión diseños de detalle no puede usarse como si fuera producto aprobado cuando el mismo expediente dice que no está aprobado integralmente.</td><td><span class="badge critico">Crítico</span></td></tr>
+<tr><td>4</td><td>EIA</td><td>En marzo de 2025 se afirma que se anexa copia completa del EIA y sus anexos, EIA específico para trasvase, análisis de erosión, estudios hidrológicos, ecológicos y de biodiversidad.</td><td>En enero de 2026 se afirma que como no requiere licencia ambiental, no es necesario realizar EIA.</td><td>Es una de las contradicciones más fuertes. O existe un estudio ambiental usado como EIA, o no era necesario realizar EIA, o se trata de documentos ambientales con nombre inadecuado.</td><td><span class="badge critico">Crítico</span></td></tr>
+<tr><td>5</td><td>Comparación Arroyo Guerrero y Río Ranchería</td><td>La comunidad pide evaluación comparativa. ESEPGUA responde que no aplica por no requerir licencia ambiental.</td><td>Al mismo tiempo dice que sí existe EIA, estudio de trasvase y análisis de impactos sobre Arroyo Guerrero.</td><td>Si hay decisión de llevar vertimientos a Arroyo Guerrero y no al Río Ranchería, la ausencia de comparación debilita la justificación técnica de alternativa.</td><td><span class="badge alto">Alto</span></td></tr>
+<tr><td>6</td><td>PSMV como soporte y como requisito pendiente</td><td>En marzo de 2025 se usa el PSMV como soporte para justificar Arroyo Guerrero, capítulos 3.2.2 y siguientes.</td><td>En 2026 se dice que el PSMV está pendiente de actualización, radicación y aprobación, y que es requisito previo indispensable.</td><td>No puede presentarse el PSMV como base suficiente y al mismo tiempo como instrumento pendiente e indispensable para viabilidad.</td><td><span class="badge critico">Crítico</span></td></tr>
+<tr><td>7</td><td>Licencia ambiental</td><td>Corpoguajira dice no licencia para población de 126.103 habitantes y advierte que si llega a 200.000 o más sí sería necesaria licencia.</td><td>ESEPGUA usa el oficio como soporte general para decir que el proyecto no requiere licencia y que no es necesario EIA.</td><td>La conclusión depende del escenario poblacional informado y no puede extenderse sin verificar población de diseño, horizonte y cambios de proyecto.</td><td><span class="badge alto">Alto</span></td></tr>
+<tr><td>8</td><td>Permisos ambientales</td><td>Corpoguajira dice que si al ejecutar se requiere afectación o aprovechamiento de recurso natural se debe solicitar permiso correspondiente.</td><td>ESEPGUA sostiene que en etapa de estudios no se requiere permiso de vertimientos y que el proyecto no está en fase de licenciamiento.</td><td>La ausencia de licencia no elimina otros permisos ni la necesidad de información ambiental suficiente para consulta o viabilidad.</td><td><span class="badge alto">Alto</span></td></tr>
+<tr><td>9</td><td>Consulta previa ampliada</td><td>En agosto y noviembre de 2025 ESEPGUA sostiene que no era necesaria nueva consulta o ampliación con Arroyo Guerrero.</td><td>En enero de 2026 reconoce que mediante ST 2211 de diciembre de 2025 se adicionaron siete comunidades.</td><td>La tesis de que no había necesidad de ampliación queda superada por el propio expediente.</td><td><span class="badge critico">Crítico</span></td></tr>
+<tr><td>10</td><td>Nuevas comunidades</td><td>El expediente reconoce ST 2211 para Marbacella, Fortaleza, Paaspilon, Cachaca 3 Tuulia, La Piedra, Puente Guerrero y El Horno.</td><td>En abril de 2026 se dice que no hay cronograma ni convocatoria formal para nuevas etapas.</td><td>No hay base para presentar consulta como cerrada frente a todas las comunidades concernidas.</td><td><span class="badge critico">Crítico</span></td></tr>
+<tr><td>11</td><td>Acceso a información</td><td>ESEPGUA afirma que no ha negado información y que ha entregado respuestas completas y transparentes.</td><td>También dice que entrega documentos cuando se consolidan o culminan procesos de revisión técnica y que algunos productos quedan supeditados a validación del MVCT.</td><td>La información puede ser trazable, pero no necesariamente completa, definitiva o suficiente para una consulta informada.</td><td><span class="badge alto">Alto</span></td></tr>
+<tr><td>12</td><td>Reserva sobre vendedor del predio</td><td>La comunidad pregunta quién es el futuro vendedor del terreno.</td><td>ESEPGUA responde que reserva datos por secreto comercial o industrial y planes estratégicos de empresas públicas.</td><td>La reserva puede discutirse si el predio afecta territorio, consulta previa, compra pública y derecho a información ambiental.</td><td><span class="badge medio">Medio</span></td></tr>
+<tr><td>13</td><td>Acta manuscrita</td><td>El expediente incorpora acta manuscrita de reunión técnica sobre PTAR, PSMV y Manaure.</td><td>La fecha, legibilidad, participantes, compromisos y trazabilidad son difíciles de reconstruir con precisión.</td><td>Un acta así es débil para soportar decisiones o coordinación de alto impacto.</td><td><span class="badge medio">Medio</span></td></tr>
+<tr><td>14</td><td>Duplicidad documental</td><td>Las páginas 46 y 47 contienen versiones casi idénticas del oficio 2026EPG0642.</td><td>No se explica por qué hay duplicidad ni cuál es la versión válida.</td><td>No es el fondo del caso, pero evidencia desorden de expediente.</td><td><span class="badge formal">Formal</span></td></tr>
+<tr><td>15</td><td>Errores de nombres y fechas</td><td>Aparecen variaciones como Irrachon, Irranchon, Iraichon, El Jope, El Jojon, fecha T 556 de 2047 y fechas distintas para 2025EPG0689.</td><td>El expediente usa esos nombres y fechas como soporte de consulta y trazabilidad.</td><td>En consulta previa, el nombre de comunidades y fechas no es un detalle menor. Puede afectar identificación de sujetos colectivos y cadena documental.</td><td><span class="badge medio">Medio</span></td></tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>6. Incongruencia crítica sobre ubicación y predio</h2>
+<p>El eje más fuerte del expediente es la mutación de la ubicación. En 2024 se afirma que Arroyo Guerrero fue seleccionado como área técnicamente adecuada y que el lote 4 tenía la mejor calificación por criterios técnicos, ambientales, socioeconómicos y prediales. En enero de 2026 se sostiene que existe certificado de localización rural del predio El Socorro lote 4. Pero en abril de 2026 se afirma que no hay adquisición predial, ni acto definitivo de localización, y finalmente que el proyecto ya no será en Arroyo Guerrero.</p>
+<table>
+<thead><tr><th>Documento</th><th>Dato</th><th>Problema</th></tr></thead>
+<tbody>
+<tr><td>2024EPG0950</td><td>Predio más adecuado en cercanías de Arroyo Guerrero. Lote 4 con mejor calificación y más económico.</td><td>Presenta una preferencia técnica clara.</td></tr>
+<tr><td>2026EPG0102</td><td>Certificado de Localización Rural del predio El Socorro lote 4.</td><td>Reafirma una localización concreta dentro del expediente.</td></tr>
+<tr><td>2026EPG0560</td><td>No hay adquisición predial ni acto administrativo que adopte localización definitiva.</td><td>Reduce el valor jurídico de la localización anterior.</td></tr>
+<tr><td>2026EPG0676</td><td>El proyecto ya no será en Arroyo Guerrero y se busca nuevo lugar.</td><td>Rompe la coherencia con los estudios y respuestas previas centradas en Arroyo Guerrero.</td></tr>
+</tbody>
+</table>
+<div class="notice">
+<p>Lectura jurídica. Si el proyecto ya no será en Arroyo Guerrero, los soportes anteriores que justifican ese punto de vertimiento, ese predio, esa consulta y esas alternativas requieren explicación formal. No basta decir que se busca nuevo lugar. Hay que decir qué estudios quedan sin efecto, cuáles se mantienen, cuáles deben repetirse y cómo se reinicia la identificación de comunidades afectadas.</p>
+</div>
+</section>
+
+<section>
+<h2>7. Incongruencia crítica sobre EIA y estudios ambientales</h2>
+<p>El documento contiene dos discursos incompatibles. Uno afirma que se entregó EIA completo y anexos. Otro afirma que no es necesario realizar EIA porque no se requiere licencia ambiental.</p>
+<table>
+<thead><tr><th>Documento</th><th>Lo que sostiene</th><th>Impacto</th></tr></thead>
+<tbody>
+<tr><td>2025EPG0467</td><td>Se anexa copia completa del EIA de la PTAR y sus anexos. También se anexa EIA específico para trasvase de cuencas.</td><td>La entidad reconoce existencia de documentos ambientales de alto nivel.</td></tr>
+<tr><td>2025EPG0467</td><td>Dice que dentro del EIA hay análisis de impacto en Arroyo Guerrero, comunidades locales, erosión, medidas de control, hidrología, ecología y biodiversidad.</td><td>Usa el EIA para responder preguntas sustantivas de impacto.</td></tr>
+<tr><td>2026EPG0102</td><td>Afirma que al no requerirse licencia ambiental, no es necesario realizar EIA.</td><td>Niega necesidad de aquello que el mismo expediente había dicho entregar.</td></tr>
+<tr><td>2026EPG0676</td><td>Afirma que no cuenta con estudios de diseños a nivel de detalle aprobados integralmente.</td><td>Debilita la idea de que los estudios ambientales y técnicos estén cerrados.</td></tr>
+</tbody>
+</table>
+<p>La forma más fuerte de plantearlo en un escrito sería la siguiente. El expediente no permite saber si el llamado EIA era un Estudio de Impacto Ambiental formal, un estudio ambiental interno, una matriz de valoración de impactos o un conjunto de insumos preliminares sin aprobación definitiva. Esa ambigüedad impide que las comunidades puedan saber con precisión cuál es el documento ambiental que se les pide aceptar o discutir.</p>
+</section>
+
+<section>
+<h2>8. Incongruencia sobre PSMV</h2>
+<p>El PSMV aparece como soporte técnico para justificar Arroyo Guerrero y, a la vez, como requisito pendiente para la viabilidad del proyecto.</p>
+<table>
+<thead><tr><th>Uso del PSMV</th><th>Documento</th><th>Lectura</th></tr></thead>
+<tbody>
+<tr><td>Soporte del punto de vertimiento en Arroyo Guerrero</td><td>2025EPG0467</td><td>Se invocan capítulos 3.2.2 y siguientes del PSMV.</td></tr>
+<tr><td>Instrumento vigente pero insuficiente</td><td>2025EPG0010, 2025EPG0689, 2025EPG0842</td><td>Se afirma que el PSMV tiene vigencia hasta 2027, pero debe actualizarse para necesidades actuales.</td></tr>
+<tr><td>Requisito indispensable para viabilidad</td><td>2026EPG0102 y 2026EPG0676</td><td>Se indica que no hay PSMV actualizado, aprobado y vigente para la viabilidad técnica, ambiental e institucional del proyecto.</td></tr>
+<tr><td>Trámite no iniciado plenamente</td><td>Liquidación Corpoguajira 202512243600068102 y oficio 2026EPG0090</td><td>El trámite depende de pago y radicación documental. ESEPGUA pide al Distrito ponerse al día.</td></tr>
+</tbody>
+</table>
+<div class="notice">
+<p>Lectura jurídica. Si el PSMV actualizado es requisito previo, obligatorio e indispensable, no puede presentarse el soporte del PSMV anterior como base suficiente para cerrar discusión ambiental, territorial o consultiva sobre Arroyo Guerrero.</p>
+</div>
+</section>
+
+<section>
+<h2>9. Incongruencia sobre licencia ambiental</h2>
+<p>La certificación de Corpoguajira de 2023 no es una carta blanca absoluta. Está condicionada por la información suministrada y por el escenario poblacional utilizado.</p>
+<table>
+<thead><tr><th>Elemento</th><th>Dato del expediente</th><th>Riesgo</th></tr></thead>
+<tbody>
+<tr><td>Población usada</td><td>126.103 habitantes de cabecera municipal según Censo 2018 informado por el titular.</td><td>La conclusión de no licencia depende de ese dato.</td></tr>
+<tr><td>Umbral de licencia</td><td>200.000 habitantes o más para sistemas de tratamiento de aguas residuales.</td><td>Si el diseño, horizonte o población servida cambia, el análisis debe revisarse.</td></tr>
+<tr><td>Permisos por recurso natural</td><td>Corpoguajira advierte que si hay afectación o aprovechamiento de recurso natural se debe pedir permiso correspondiente.</td><td>No requerir licencia no elimina permisos ambientales ni análisis sustantivo del vertimiento.</td></tr>
+<tr><td>Uso posterior del concepto</td><td>ESEPGUA lo usa para afirmar que no se requiere EIA.</td><td>El oficio de no licencia no necesariamente equivale a inexistencia de impactos ni elimina deberes de información ambiental.</td></tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>10. Incongruencia sobre consulta previa</h2>
+<p>El documento muestra una secuencia que debilita la defensa inicial de ESEPGUA. Primero se sostiene que la consulta con El Jope e Irrachon era suficiente y que no era necesaria ampliación. Después se reconoce una resolución que adiciona nuevas comunidades.</p>
+<table>
+<thead><tr><th>Momento</th><th>Versión</th><th>Consecuencia</th></tr></thead>
+<tbody>
+<tr><td>2023 y 2024</td><td>Resolución ST 1112 con El Jope e Irrachon. ESEPGUA dice que el proceso culminó con protocolización.</td><td>Consulta inicial limitada a dos comunidades.</td></tr>
+<tr><td>Julio y agosto de 2024 según ESEPGUA</td><td>El Ministerio habría dicho que no era necesaria ampliación.</td><td>Se usa como defensa frente a comunidades de Arroyo Guerrero.</td></tr>
+<tr><td>Diciembre de 2025</td><td>ST 2211 adiciona Marbacella, Fortaleza, Paaspilon, Cachaca 3 Tuulia, La Piedra, Puente Guerrero y El Horno.</td><td>Reconoce que había más comunidades con posible afectación directa.</td></tr>
+<tr><td>Abril de 2026</td><td>No hay cronograma ni convocatoria formal para nuevas etapas según 2026EPG0560.</td><td>El proceso no aparece cerrado respecto del universo ampliado.</td></tr>
+</tbody>
+</table>
+<div class="notice">
+<p>Lectura jurídica. No es correcto presentar la consulta como cerrada para el proyecto si el propio expediente reconoce una ampliación posterior de comunidades y ausencia de cronograma formal para nuevas etapas.</p>
+</div>
+</section>
+
+<section>
+<h2>11. Lo que existe dentro del expediente</h2>
+<table>
+<thead><tr><th>Elemento</th><th>Existe en el PDF</th><th>Estado</th><th>Utilidad</th></tr></thead>
+<tbody>
+<tr><td>Concepto de no licencia ambiental de Corpoguajira</td><td>Sí</td><td>Basado en 126.103 habitantes</td><td>Sirve para discutir alcance limitado del concepto.</td></tr>
+<tr><td>Reiteraciones al Distrito sobre PSMV</td><td>Sí</td><td>Oficios de enero, mayo, junio de 2025 y marzo de 2026</td><td>Sirven para probar que PSMV seguía pendiente.</td></tr>
+<tr><td>Liquidación de Corpoguajira para evaluación de PSMV</td><td>Sí</td><td>24 de diciembre de 2025</td><td>Prueba que el trámite requería pago para iniciar o avanzar.</td></tr>
+<tr><td>Respuesta sobre localización</td><td>Sí</td><td>Arroyo Guerrero y lote 4 en 2024</td><td>Prueba que sí hubo orientación concreta hacia Arroyo Guerrero.</td></tr>
+<tr><td>Respuesta que dice que ya no será en Arroyo Guerrero</td><td>Sí</td><td>Abril de 2026</td><td>Prueba giro institucional.</td></tr>
+<tr><td>Referencia a EIA y anexos ambientales</td><td>Sí</td><td>Marzo de 2025</td><td>Prueba que ESEPGUA nombró y ofreció documentos como EIA.</td></tr>
+<tr><td>Negación de necesidad de EIA</td><td>Sí</td><td>Enero de 2026</td><td>Prueba contradicción interna.</td></tr>
+<tr><td>ST 1112</td><td>Sí</td><td>Consulta con El Jope e Irrachon</td><td>Base del proceso inicial de consulta.</td></tr>
+<tr><td>ST 2211</td><td>Sí</td><td>Adición de siete comunidades</td><td>Base del proceso ampliado y de la imposibilidad de cierre total.</td></tr>
+<tr><td>Actas de reuniones y listados</td><td>Sí, con problemas de legibilidad en algunas páginas</td><td>No completamente claros</td><td>Exigen transcripción oficial y cadena de custodia documental.</td></tr>
+<tr><td>Respuestas a entidades nacionales</td><td>Sí</td><td>Múltiples radicados</td><td>Sirven como trazabilidad, pero no resuelven contradicciones de fondo.</td></tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>12. Lo que no aparece o queda insuficiente dentro del PDF</h2>
+<table>
+<thead><tr><th>Elemento faltante o insuficiente</th><th>Por qué importa</th><th>Gravedad</th></tr></thead>
+<tbody>
+<tr><td>Acto administrativo definitivo que adopte localización de la PTAR</td><td>El mismo expediente dice que no existe. Sin acto definitivo no puede tratarse la ubicación como cerrada.</td><td><span class="badge critico">Crítico</span></td></tr>
+<tr><td>PSMV actualizado, aprobado y vigente para la viabilidad del proyecto</td><td>El expediente lo declara requisito previo e indispensable.</td><td><span class="badge critico">Crítico</span></td></tr>
+<tr><td>Cierre técnico del MVCT</td><td>El expediente dice que no hay pronunciamiento definitivo ni cierre técnico.</td><td><span class="badge critico">Crítico</span></td></tr>
+<tr><td>Versión definitiva aprobada de todos los estudios técnicos</td><td>El expediente dice que productos dependen de ajustes y aprobación.</td><td><span class="badge alto">Alto</span></td></tr>
+<tr><td>Explicación formal de qué estudios quedan sin efecto si el proyecto ya no será en Arroyo Guerrero</td><td>La búsqueda de nuevo predio afecta la coherencia de todo lo anterior.</td><td><span class="badge critico">Crítico</span></td></tr>
+<tr><td>Evaluación comparativa entre Arroyo Guerrero y Río Ranchería</td><td>La respuesta dice que no aplica, pero la decisión de alternativa exige justificación sustantiva.</td><td><span class="badge alto">Alto</span></td></tr>
+<tr><td>Documento claro que explique el estatus real del llamado EIA</td><td>No se sabe si era EIA formal, estudio ambiental preliminar o matriz de impactos.</td><td><span class="badge critico">Crítico</span></td></tr>
+<tr><td>Cronograma formal para las comunidades adicionadas por ST 2211</td><td>Sin cronograma no hay cierre consultivo sobre comunidades nuevas.</td><td><span class="badge critico">Crítico</span></td></tr>
+<tr><td>Transcripción oficial del acta manuscrita</td><td>La mala legibilidad debilita su uso como soporte.</td><td><span class="badge medio">Medio</span></td></tr>
+<tr><td>Datos completos de las dos acciones constitucionales mencionadas</td><td>Se invocan como favorables a ESEPGUA, pero el cuerpo visible no individualiza suficientemente radicado, juzgado, fecha y decisión.</td><td><span class="badge medio">Medio</span></td></tr>
+<tr><td>Referencia a 16 comunidades y más de 1.100 familias</td><td>No aparece dentro de este PDF según la lectura del archivo. Si existe en presupuesto, pertenece a otro soporte o no está incluido aquí.</td><td><span class="badge alto">Alto</span></td></tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>13. Errores formales y de calidad documental</h2>
+<table>
+<thead><tr><th>Tipo</th><th>Ejemplo dentro del PDF</th><th>Riesgo</th></tr></thead>
+<tbody>
+<tr><td>Fecha inconsistente</td><td>El oficio 2025EPG0689 aparece asociado a 25 de mayo, 15 de mayo y en una mención al 5 de mayo.</td><td>Puede afectar trazabilidad de requerimientos al Distrito.</td></tr>
+<tr><td>Nombre de comunidad variable</td><td>El Jope, El Jojon, Irrachon, Irranchon, Iraichon.</td><td>Puede afectar identificación correcta de sujetos colectivos.</td></tr>
+<tr><td>Error de año</td><td>Se lee Sentencia T 556 de 2047 en una página, aunque el contexto apunta a 2017.</td><td>Error formal sensible en documento jurídico.</td></tr>
+<tr><td>Numeración de anexos</td><td>En página 3 aparece Anexo? para reiteraciones al Distrito PSMV.</td><td>Debilita orden del expediente.</td></tr>
+<tr><td>Nombre institucional mal escrito</td><td>En página 3 aparece EJEPGUA S.A. E.S.P.</td><td>Error formal de entidad emisora.</td></tr>
+<tr><td>Documento duplicado</td><td>Páginas 46 y 47 repiten oficio 2026EPG0642.</td><td>Exige depuración del expediente.</td></tr>
+<tr><td>Acta manuscrita</td><td>Páginas 20 a 24 tienen baja legibilidad y fecha confusa.</td><td>Requiere copia limpia, transcripción y validación.</td></tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>14. Preguntas de control que deberían hacerse a ESEPGUA</h2>
+<table>
+<thead><tr><th>Pregunta</th><th>Razón</th><th>Documento que la abre</th></tr></thead>
+<tbody>
+<tr><td>Qué acto formal dejó sin efecto la localización en Arroyo Guerrero</td><td>Porque en 2024 y 2026 se defendía Arroyo Guerrero o lote 4, pero en abril de 2026 se afirma que ya no será allí.</td><td>2024EPG0950, 2026EPG0102, 2026EPG0676</td></tr>
+<tr><td>Qué estudios deben rehacerse si cambia el predio</td><td>Porque un nuevo sitio exige revisar hidráulica, predio, comunidades, permisos, PSMV, riesgos e impactos.</td><td>2026EPG0676</td></tr>
+<tr><td>Cuál es la versión definitiva del PSMV aplicable</td><td>Porque se usa el PSMV como soporte, pero también se reconoce que no está actualizado ni aprobado.</td><td>2025EPG0467, 2026EPG0102, 2026EPG0676</td></tr>
+<tr><td>Qué es exactamente el llamado EIA entregado en marzo de 2025</td><td>Porque luego se afirma que no era necesario realizar EIA.</td><td>2025EPG0467, 2026EPG0102</td></tr>
+<tr><td>Por qué no se realizó evaluación comparativa entre Arroyo Guerrero y Río Ranchería</td><td>Porque el hecho de no requerir licencia no elimina la necesidad de justificar alternativa.</td><td>2025EPG0467</td></tr>
+<tr><td>Qué población de diseño real usa la PTAR</td><td>Porque la no licencia de Corpoguajira se basó en 126.103 habitantes y el umbral de licencia es 200.000.</td><td>20230126360001922, 2026EPG0102</td></tr>
+<tr><td>Cuál es el estado de consulta previa de las comunidades adicionadas por ST 2211</td><td>Porque no basta protocolización con El Jope e Irrachon si hay siete comunidades nuevas.</td><td>2026EPG0102, 2026EPG0560</td></tr>
+<tr><td>Cuál es el cronograma oficial de ruta metodológica con las comunidades nuevas</td><td>Porque el expediente dice que no hay cronograma ni convocatoria formal.</td><td>2026EPG0560</td></tr>
+<tr><td>Por qué se invoca reserva sobre el vendedor del predio</td><td>Porque la información predial puede ser ambiental, territorial y de interés público.</td><td>2024EPG0950</td></tr>
+<tr><td>Cuáles son las dos acciones constitucionales favorables a ESEPGUA</td><td>Porque se mencionan sin detalle completo en el cuerpo visible del oficio.</td><td>2026EPG0642</td></tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>15. Valor probatorio de los hallazgos</h2>
+<table>
+<thead><tr><th>Hallazgo</th><th>Uso jurídico posible</th><th>Fuerza probatoria interna</th></tr></thead>
+<tbody>
+<tr><td>Proyecto ya no será en Arroyo Guerrero</td><td>Solicitar aclaración sobre anulación, sustitución o pérdida de vigencia de estudios previos.</td><td>Muy alta dentro del expediente porque lo afirma ESEPGUA ante Defensoría.</td></tr>
+<tr><td>No hay diseños de detalle aprobados integralmente</td><td>Cuestionar cualquier presentación pública como proyecto cerrado o listo.</td><td>Muy alta.</td></tr>
+<tr><td>No hay PSMV actualizado, aprobado y vigente</td><td>Solicitar suspensión de avance sustantivo hasta cumplir requisito ambiental.</td><td>Muy alta.</td></tr>
+<tr><td>No hay cierre técnico del MVCT</td><td>Cuestionar viabilidad técnica definitiva.</td><td>Alta.</td></tr>
+<tr><td>ST 2211 adiciona comunidades</td><td>Impugnar cualquier cierre de consulta basado solo en El Jope e Irrachon.</td><td>Muy alta dentro del PDF.</td></tr>
+<tr><td>Contradicción sobre EIA</td><td>Exigir aclaración documental y entrega de versión formal, si existe.</td><td>Alta.</td></tr>
+<tr><td>No licencia basada en 126.103 habitantes</td><td>Solicitar verificación de población de diseño y horizonte de operación.</td><td>Alta.</td></tr>
+<tr><td>Errores de nombres y fechas</td><td>Pedir depuración de expediente y certificación de sujetos consultivos correctos.</td><td>Media.</td></tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>16. Conclusión final</h2>
+<p>El PDF no muestra un expediente cerrado. Muestra un expediente en transición, con cambios de ubicación, requisitos ambientales pendientes, consulta previa ampliada, PSMV sin actualización aprobada, productos técnicos no definitivos y contradicciones sobre la existencia o necesidad de EIA.</p>
+<p>La conclusión más sólida es que el propio expediente de ESEPGUA ofrece elementos para sostener que no existen condiciones documentales suficientes para presentar el proyecto como listo para construcción, ni para tratar Arroyo Guerrero como ubicación válida ya cerrada, ni para afirmar que la consulta previa está agotada respecto de todas las comunidades potencialmente afectadas.</p>
+<p>La frase de síntesis probatoria sería esta. El expediente no solo contiene respuestas. Contiene cambios de versión. Y esos cambios afectan ubicación, estudios, PSMV, consulta previa, información ambiental y trazabilidad institucional.</p>
+</section>
+
+</main>
+</body>
+</html>

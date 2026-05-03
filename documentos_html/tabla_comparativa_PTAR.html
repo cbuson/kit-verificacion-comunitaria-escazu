@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matriz Documental – PTAR Arroyo Guerrero</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --ink: #0f0e0d;
+    --paper: #f5f0e8;
+    --accent: #b03a2e;
+    --accent2: #1a3a5c;
+    --accent3: #2e7d32;
+    --muted: #7a7165;
+    --rule: #c8bfaf;
+    --highlight: #fff3cd;
+    --warn: #fdecea;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    padding: 2.5rem 1.5rem 4rem;
+    min-width: 900px;
+  }
+
+  header {
+    border-bottom: 3px solid var(--ink);
+    padding-bottom: 1.2rem;
+    margin-bottom: 0.4rem;
+  }
+
+  header .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+
+  header h1 span {
+    color: var(--accent);
+  }
+
+  .subtitle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-top: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .legend {
+    display: flex;
+    gap: 1.5rem;
+    margin: 1.2rem 0 1.6rem;
+    flex-wrap: wrap;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--muted);
+  }
+
+  .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .dot-red { background: var(--accent); }
+  .dot-blue { background: var(--accent2); }
+  .dot-green { background: var(--accent3); }
+  .dot-gold { background: #b8860b; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+  }
+
+  thead tr {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  thead th {
+    padding: 0.75rem 0.85rem;
+    text-align: left;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+
+  thead th:first-child { width: 16%; }
+  thead th:nth-child(2) { width: 21%; }
+  thead th:nth-child(3) { width: 21%; }
+  thead th:nth-child(4) { width: 21%; }
+  thead th:last-child { width: 21%; }
+
+  .doc-header {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    opacity: 0.75;
+    display: block;
+    margin-bottom: 0.2rem;
+    letter-spacing: 0.05em;
+  }
+
+  .doc-title {
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  tbody tr:nth-child(even) {
+    background: rgba(0,0,0,0.025);
+  }
+
+  tbody tr:hover {
+    background: rgba(176,58,46,0.04);
+  }
+
+  td {
+    padding: 0.75rem 0.85rem;
+    vertical-align: top;
+    line-height: 1.5;
+    border-right: 1px solid var(--rule);
+  }
+
+  td:first-child {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--accent2);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: rgba(26,58,92,0.04);
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.18em 0.55em;
+    border-radius: 2px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+
+  .badge-red { background: var(--warn); color: var(--accent); border: 1px solid #f5c6c2; }
+  .badge-green { background: #e8f5e9; color: var(--accent3); border: 1px solid #c8e6c9; }
+  .badge-blue { background: #e3eaf5; color: var(--accent2); border: 1px solid #c5d4e8; }
+  .badge-gold { background: var(--highlight); color: #856404; border: 1px solid #f5dba0; }
+  .badge-gray { background: #f0ece6; color: var(--muted); border: 1px solid var(--rule); }
+
+  .contradiction {
+    background: var(--warn);
+    border-left: 3px solid var(--accent);
+    padding: 0.35rem 0.5rem;
+    border-radius: 0 3px 3px 0;
+    margin-top: 0.4rem;
+    font-size: 0.72rem;
+    font-style: italic;
+    color: #7a2e24;
+  }
+
+  .note-box {
+    background: #e3eaf5;
+    border-left: 3px solid var(--accent2);
+    padding: 0.35rem 0.5rem;
+    border-radius: 0 3px 3px 0;
+    margin-top: 0.4rem;
+    font-size: 0.72rem;
+    color: #1a3a5c;
+  }
+
+  .footer {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .footer p {
+    font-size: 0.68rem;
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    line-height: 1.6;
+  }
+
+  .key-finding {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 1rem 1.4rem;
+    margin: 1.6rem 0;
+    border-radius: 2px;
+  }
+
+  .key-finding .kf-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  .key-finding p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    font-weight: 700;
+  }
+
+  .key-finding p span { color: #f4a261; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Análisis Jurídico-Estratégico · Comunidades Wayuú · La Guajira</div>
+  <h1>Matriz Documental <span>PTAR Arroyo Guerrero</span></h1>
+  <div class="subtitle">Cuatro documentos institucionales · Contradicciones, admisiones y valor probatorio · Abril 2026</div>
+</header>
+
+<div class="legend">
+  <div class="legend-item"><div class="dot dot-red"></div> ESEPGUA Carta de Presentación — sept. 2024 (2024EPG1069)</div>
+  <div class="legend-item"><div class="dot dot-blue"></div> CORPOGUAJIRA Informe Tribunal — mar. 2026</div>
+  <div class="legend-item"><div class="dot dot-green"></div> ANLA Respuesta PQRSD — abr. 2026 (20262300384051)</div>
+  <div class="legend-item"><div class="dot dot-gold"></div> ESEPGUA Respuesta Comunidades — abr. 2026 (2026EPG0560)</div>
+</div>
+
+<div class="key-finding">
+  <div class="kf-label">▲ Hallazgo estructural</div>
+  <p>El proyecto avanzó hasta fase de <span>inversión con diseños definitivos y presupuesto de $50.773 millones</span> sin licencia ambiental, sin PSMV, sin consulta previa completada y sin expediente ante ninguna autoridad ambiental competente — contradicción documentada por los propios actores institucionales.</p>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dimensión analítica</th>
+      <th>
+        <span class="doc-header">DOC. 1 · 2024EPG1069</span>
+        <span class="doc-title">ESEPGUA → Min. Vivienda<br>Sep. 2024</span>
+      </th>
+      <th>
+        <span class="doc-header">DOC. 2 · 202603123300012792</span>
+        <span class="doc-title">CORPOGUAJIRA → Tribunal Superior<br>Mar. 2026</span>
+      </th>
+      <th>
+        <span class="doc-header">DOC. 3 · 20262300384051</span>
+        <span class="doc-title">ANLA → Comunidades Wayuú<br>14 Abr. 2026</span>
+      </th>
+      <th>
+        <span class="doc-header">DOC. 4 · 2026EPG0560</span>
+        <span class="doc-title">ESEPGUA → Comunidades Wayuú<br>6 Abr. 2026</span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td>Fase declarada del proyecto</td>
+      <td>
+        <div class="badge badge-red">Inversión</div><br>
+        Presentado ante Ministerio de Vivienda como proyecto de <strong>inversión</strong> con diseños definitivos, presupuesto cerrado ($50.773 M) y cronograma de ejecución.
+      </td>
+      <td>
+        <div class="badge badge-gray">No se pronuncia</div><br>
+        No aborda la fase del proyecto. Se limita a confirmar ausencia de trámite ambiental.
+      </td>
+      <td>
+        <div class="badge badge-gray">No se pronuncia</div><br>
+        No evalúa la fase del proyecto. Remite competencia de licenciamiento a CORPOGUAJIRA.
+      </td>
+      <td>
+        <div class="badge badge-gold">Planeación</div><br>
+        Afirma que el proyecto está en "fase de planeación, estudios y diseños", sin obra iniciada ni acto administrativo definitivo.
+        <div class="contradiction">⚠ Contradice Doc. 1: en 2024 ya era proyecto de inversión con diseños completos.</div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Licencia ambiental</td>
+      <td>
+        <div class="badge badge-red">Declaración falsa</div><br>
+        En el ítem 5 de la certificación jurada, ESEPGUA marcó <strong>"Sí"</strong> a la pregunta sobre permisos ambientales requeridos (PSMV, licencia, permiso de vertimientos, concesión de aguas).
+      </td>
+      <td>
+        <div class="badge badge-red">Inexistente</div><br>
+        Confirma que <strong>no se ha radicado</strong> solicitud de licencia ambiental, permiso de vertimientos, concesión de aguas ni estudios técnicos ante CORPOGUAJIRA.
+        <div class="contradiction">⚠ Contradicción directa con la declaración jurada de Doc. 1.</div>
+      </td>
+      <td>
+        <div class="badge badge-red">Inexistente</div><br>
+        Confirma que en SILA <strong>no se registra trámite</strong> de licencia ambiental para el proyecto. Aclara que la competencia recae en CORPOGUAJIRA (poblaciones &lt;200.000 hab.), aunque con posible traslado a ANLA.
+        <div class="note-box">📌 Abre puerta: si la PTAR sirve a 205.657 hab. (Doc. 1), la competencia podría trasladarse a ANLA por Parágrafo 4, Art. 2.2.2.3.2.3.</div>
+      </td>
+      <td>
+        <div class="badge badge-gold">Admisión explícita</div><br>
+        Reconoce que "el proyecto <strong>no se encuentra en fase de licenciamiento ambiental</strong>". Primera admisión pública directa de ESEPGUA sobre este vacío.
+      </td>
+    </tr>
+
+    <tr>
+      <td>PSMV (Plan de Saneamiento y Manejo de Vertimientos)</td>
+      <td>
+        <div class="badge badge-red">Marcado como cumplido</div><br>
+        Incluido en el ítem 5 como requisito cubierto mediante declaración jurada.
+      </td>
+      <td>
+        <div class="badge badge-red">No radicado</div><br>
+        No se ha presentado solicitud de permiso de vertimientos (Decreto 1076/2015, Art. 2.2.3.3.5.1) ante CORPOGUAJIRA.
+      </td>
+      <td>
+        <div class="badge badge-gray">No abordado</div><br>
+        No se pronuncia sobre el PSMV, que es instrumento de competencia de la CAR.
+      </td>
+      <td>
+        <div class="badge badge-gold">Admisión explícita</div><br>
+        Reconoce que el PSMV "se encuentra <strong>pendiente de actualización, radicación y aprobación</strong>" ante la autoridad ambiental. Lo califica como "requisito habilitante" no obtenido.
+        <div class="contradiction">⚠ Contradicción con declaración jurada de Doc. 1.</div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Consulta previa</td>
+      <td>
+        <div class="badge badge-gray">No mencionada</div><br>
+        El formulario de viabilización no incluye campo sobre consulta previa. Silencio sobre afectación a comunidades étnicas.
+      </td>
+      <td>
+        <div class="badge badge-blue">Competencia del Min. Interior</div><br>
+        Señala que la competencia para determinar la procedencia y adelantar la consulta previa corresponde al Ministerio del Interior (Decreto 1066/2015 y Decreto 2353/2019). CORPOGUAJIRA no es entidad competente.
+      </td>
+      <td>
+        <div class="badge badge-blue">No pronunciamiento</div><br>
+        No aborda la consulta previa. Se limita a confirmar ausencia de trámite ambiental ante ANLA. No activa mecanismos de coordinación solicitados por las comunidades.
+        <div class="note-box">📌 Omisión notable frente a las obligaciones del Acuerdo de Escazú respecto a grupos vulnerables, expresamente invocado por las comunidades.</div>
+      </td>
+      <td>
+        <div class="badge badge-gold">Admisión tácita de incompletitud</div><br>
+        Reconoce que no hay "cronograma ni convocatoria formal" para nuevas etapas de consulta. Remite la decisión al Ministerio del Interior. Admite que entidades competentes verifican si hay comunidades concernidas.
+        <div class="contradiction">⚠ La certificación de no afectación fue emitida por Planeación Distrital, sin competencia legal para ello.</div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Certificación de no afectación étnica</td>
+      <td>
+        <div class="badge badge-red">Referenciada implícitamente</div><br>
+        Proyecto presentado sin mención de afectación a comunidades indígenas. La certificación de Planeación Distrital (feb. 2025) sustentó la ausencia de consulta previa en el expediente de viabilización.
+      </td>
+      <td>
+        <div class="badge badge-gray">No abordada</div><br>
+        CORPOGUAJIRA no se pronuncia sobre la certificación de Planeación Distrital ni sobre su validez.
+      </td>
+      <td>
+        <div class="badge badge-gray">No abordada</div><br>
+        ANLA no evalúa la validez de la certificación de Planeación Distrital.
+      </td>
+      <td>
+        <div class="badge badge-gold">Socavada implícitamente</div><br>
+        Reconoce que "en atención a manifestaciones posteriores" las entidades competentes están en proceso de "verificación y eventual actualización" de la identificación de comunidades concernidas.
+        <div class="contradiction">⚠ Admisión de que la certificación original era insuficiente o incorrecta.</div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Estado financiero y nivel de avance técnico</td>
+      <td>
+        <div class="badge badge-red">Avance definitivo</div><br>
+        Presupuesto cerrado: $50.773.230.309. Financiación tripartita: Nación ($55.773 M) + Departamento ($15.000 M) + Municipio ($5.000 M). Incluye obra civil, suministros, interventoría. Estudios geotécnicos, hidráulicos, estructurales completados.
+      </td>
+      <td>
+        <div class="badge badge-gray">No abordado</div><br>
+        CORPOGUAJIRA no analiza el nivel de avance financiero ni técnico del proyecto.
+      </td>
+      <td>
+        <div class="badge badge-blue">Señal de alerta</div><br>
+        La ANLA recibe solicitud que denuncia la "existencia de estudios de ingeniería avanzada, anuncios públicos de viabilidad y avances institucionales relevantes sobre una obra de gran escala con incidencia ambiental evidente" — y no lo refuta.
+      </td>
+      <td>
+        <div class="badge badge-gold">Minimizado retóricamente</div><br>
+        Describe el proyecto como en "fase de planeación", en contradicción con el nivel de avance documentado en Doc. 1 (diseños definitivos, presupuesto cerrado, modalidad inversión).
+      </td>
+    </tr>
+
+    <tr>
+      <td>Acto administrativo de localización o construcción</td>
+      <td>
+        <div class="badge badge-red">No mencionado</div><br>
+        La carta no menciona el decreto de utilidad pública ni ningún acto de localización definitiva. Silencio estratégico sobre el instrumento más avanzado del proceso.
+      </td>
+      <td>
+        <div class="badge badge-gray">No abordado</div><br>
+        CORPOGUAJIRA no se pronuncia sobre actos administrativos de la Alcaldía.
+      </td>
+      <td>
+        <div class="badge badge-gray">No abordado</div><br>
+        ANLA no analiza actos administrativos municipales o distritales.
+      </td>
+      <td>
+        <div class="badge badge-gold">Admisión de ausencia</div><br>
+        Afirma que no se ha expedido "acto administrativo que adopte localización definitiva o autorice su construcción". Oculta la existencia del decreto de utilidad pública previamente documentado.
+        <div class="contradiction">⚠ El decreto de utilidad pública es un acto administrativo que contradice esta afirmación.</div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Competencia ambiental y vacío de control</td>
+      <td>
+        <div class="badge badge-red">Vacío ignorado</div><br>
+        Proyecto presentado a Ministerio de Vivienda como proyecto de inversión sin que conste habilitación ambiental alguna ante CORPOGUAJIRA ni ANLA.
+      </td>
+      <td>
+        <div class="badge badge-blue">Vacío confirmado</div><br>
+        CORPOGUAJIRA certifica ante el Tribunal que <strong>no existe expediente ambiental</strong>, no hay estudios de impacto, no hay solicitudes de permisos. "No se ha adoptado actuación administrativa ambiental sobre el particular."
+      </td>
+      <td>
+        <div class="badge badge-green">Vacío confirmado (nivel nacional)</div><br>
+        ANLA confirma que no existe trámite en SILA. Señala que la competencia ordinaria es de CORPOGUAJIRA, pero abre puerta al traslado si la población supera 200.000 habitantes (que Doc. 1 cifra en 205.657).
+        <div class="note-box">📌 Argumento a explorar: la PTAR serviría a 205.657 hab., superando el umbral del Art. 2.2.2.3.2.3, lo que podría activar competencia de ANLA o del Ministerio de Ambiente.</div>
+      </td>
+      <td>
+        <div class="badge badge-gold">Reconocido parcialmente</div><br>
+        Admite ausencia de licencia ambiental y PSMV. No reconoce el vacío como problemático, sino como parte del proceso normal de "planeación".
+      </td>
+    </tr>
+
+    <tr>
+      <td>Situación de riesgo / defensores territoriales</td>
+      <td>
+        <div class="badge badge-gray">No mencionado</div><br>
+        Ninguna referencia a situaciones de riesgo para comunidades o líderes indígenas.
+      </td>
+      <td>
+        <div class="badge badge-gray">No abordado</div><br>
+        CORPOGUAJIRA no se pronuncia sobre riesgos para defensores del territorio.
+      </td>
+      <td>
+        <div class="badge badge-gray">No abordado</div><br>
+        ANLA no responde sobre situación de riesgo. Tampoco activa mecanismos de protección reforzada exigidos por el Acuerdo de Escazú.
+      </td>
+      <td>
+        <div class="badge badge-gold">Reconocido y delegado</div><br>
+        Indica que las situaciones de riesgo "han sido puestas en conocimiento" de la Unidad Nacional de Protección (UNP), que señaló la necesidad de seguir procedimientos establecidos. No asume responsabilidad directa.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Valor estratégico para la defensa</td>
+      <td>
+        <div class="badge badge-red">Prueba de fait accompli</div><br>
+        Acredita que el proyecto ya estaba en fase de inversión en 2024 con todos los diseños definitivos, y que ESEPGUA declaró bajo juramento contar con permisos ambientales que no existían.
+      </td>
+      <td>
+        <div class="badge badge-blue">Prueba de vacío ambiental</div><br>
+        Certificación judicial del más alto valor probatorio: la autoridad ambiental competente confirma al Tribunal Superior que no existe ningún trámite ambiental relacionado con el proyecto PTAR.
+      </td>
+      <td>
+        <div class="badge badge-green">Prueba de vacío nacional</div><br>
+        Confirma que el vacío ambiental existe tanto a nivel regional (CORPOGUAJIRA) como nacional (ANLA). Adicionalmente abre el argumento de la posible competencia de ANLA por el umbral de 200.000 habitantes.
+      </td>
+      <td>
+        <div class="badge badge-gold">Prueba de contradicción propia</div><br>
+        ESEPGUA contradice su propia declaración jurada de 2024, reconoce la ausencia de licencia y PSMV, y socava la certificación de Planeación Distrital. Documento de alto valor para acreditar la incoherencia institucional del proyecto.
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+<div class="footer">
+  <p>
+    Documentos analizados: 2024EPG1069 (sep. 2024) · 202603123300012792 (mar. 2026) · 20262300384051 (abr. 2026) · 2026EPG0560 (abr. 2026)<br>
+    Marco jurídico de referencia: Convenio OIT 169 · Acuerdo de Escazú (Ley 2273/2022) · T-556/2017 · SU-123/2018 · Decreto 1076/2015
+  </p>
+  <p style="text-align:right;">
+    Elaborado para uso estratégico<br>
+    Comunidades Wayuú · Arroyo Guerrero<br>
+    Abril 2026
+  </p>
+</div>
+
+</body>
+</html>

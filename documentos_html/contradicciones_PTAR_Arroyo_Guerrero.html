@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contradicciones Documentales — PTAR Arroyo Guerrero</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --rojo:       #c0392b;
+    --rojo-suave: #e74c3c;
+    --naranja:    #d35400;
+    --verde:      #1a5c2e;
+    --azul-oscuro:#0d2137;
+    --azul-medio: #1a3a5c;
+    --azul-acento:#2980b9;
+    --crema:      #faf6f0;
+    --crema2:     #f0ebe1;
+    --gris-texto: #2c2c2c;
+    --gris-borde: #c9bfb0;
+    --dorado:     #b8860b;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--crema);
+    color: var(--gris-texto);
+    line-height: 1.6;
+  }
+
+  /* ── CABECERA ─────────────────────────────────────────── */
+  header {
+    background: var(--azul-oscuro);
+    color: #fff;
+    padding: 3rem 4rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--rojo), var(--naranja), var(--dorado));
+  }
+  .header-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .7rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #8bafd4;
+    margin-bottom: .6rem;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    font-weight: 900;
+    line-height: 1.15;
+    color: #fff;
+    max-width: 820px;
+  }
+  header h1 span { color: #f39c12; }
+  .header-sub {
+    margin-top: 1rem;
+    font-size: .92rem;
+    color: #a8c8e8;
+    max-width: 760px;
+    font-style: italic;
+  }
+  .header-meta {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .meta-pill {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .7rem;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 3px;
+    padding: .25rem .8rem;
+    color: #cde;
+    letter-spacing: .05em;
+  }
+
+  /* ── LEYENDA ──────────────────────────────────────────── */
+  .leyenda {
+    padding: 1.4rem 4rem;
+    background: var(--azul-medio);
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .ley-item {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: .8rem;
+    color: #cde;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .dot {
+    width: 12px; height: 12px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .dot-rojo    { background: var(--rojo); }
+  .dot-naranja { background: var(--naranja); }
+  .dot-azul    { background: #2980b9; }
+
+  /* ── CONTENEDOR PRINCIPAL ────────────────────────────── */
+  main { padding: 3rem 2rem 5rem; max-width: 1600px; margin: 0 auto; }
+
+  /* ── SECCIÓN BLOQUE ──────────────────────────────────── */
+  .bloque {
+    margin-bottom: 4rem;
+  }
+  .bloque-titulo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--azul-oscuro);
+    border-left: 4px solid var(--dorado);
+    padding-left: .9rem;
+    margin-bottom: 1.4rem;
+    line-height: 1.3;
+  }
+  .bloque-intro {
+    font-size: .9rem;
+    color: #555;
+    margin-bottom: 1.2rem;
+    max-width: 900px;
+    font-style: italic;
+  }
+
+  /* ── TABLA ───────────────────────────────────────────── */
+  .tabla-wrap {
+    overflow-x: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 18px rgba(0,0,0,.08);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .85rem;
+    min-width: 900px;
+  }
+  thead tr {
+    background: var(--azul-oscuro);
+    color: #fff;
+  }
+  thead th {
+    padding: .9rem 1rem;
+    text-align: left;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .72rem;
+    letter-spacing: .08em;
+    font-weight: 500;
+    border-right: 1px solid rgba(255,255,255,.1);
+    vertical-align: bottom;
+  }
+  thead th:last-child { border-right: none; }
+
+  tbody tr { border-bottom: 1px solid var(--gris-borde); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: rgba(41,128,185,.04); }
+
+  td {
+    padding: .85rem 1rem;
+    vertical-align: top;
+    border-right: 1px solid #e2ddd4;
+  }
+  td:last-child { border-right: none; }
+
+  /* columna #  */
+  td.num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .75rem;
+    color: #999;
+    width: 36px;
+    text-align: center;
+  }
+
+  /* columna ASPECTO */
+  td.aspecto {
+    font-weight: 600;
+    color: var(--azul-oscuro);
+    width: 160px;
+    font-size: .82rem;
+  }
+
+  /* columna LO QUE DICE LA CARTA */
+  td.carta {
+    background: #fff7f5;
+    font-style: italic;
+    color: #5a1a0a;
+    border-left: 3px solid var(--rojo-suave);
+  }
+
+  /* columna LO QUE PRUEBAN LAS MEMORIAS */
+  td.memorias {
+    background: #f0f5fa;
+    border-left: 3px solid var(--azul-acento);
+    color: #0d2137;
+  }
+
+  /* columna CONTRADICCIÓN / GRAVEDAD */
+  td.contradiccion {
+    background: #fffaf0;
+    border-left: 3px solid var(--naranja);
+  }
+
+  /* columna REFERENCIA DOCUMENTAL */
+  td.referencia {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .72rem;
+    color: #666;
+    background: var(--crema2);
+    width: 200px;
+  }
+
+  /* badges de gravedad */
+  .badge {
+    display: inline-block;
+    padding: .18rem .55rem;
+    border-radius: 2px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .65rem;
+    font-weight: 500;
+    letter-spacing: .04em;
+    margin-bottom: .35rem;
+  }
+  .badge-critica   { background: var(--rojo);    color: #fff; }
+  .badge-grave     { background: var(--naranja);  color: #fff; }
+  .badge-relevante { background: var(--dorado);   color: #fff; }
+  .badge-tecnica   { background: #2980b9;          color: #fff; }
+
+  .cita {
+    background: rgba(0,0,0,.04);
+    border-left: 2px solid var(--gris-borde);
+    padding: .3rem .6rem;
+    font-size: .78rem;
+    margin-top: .4rem;
+    font-style: normal;
+    border-radius: 0 2px 2px 0;
+  }
+  .src {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .65rem;
+    color: #888;
+    display: block;
+    margin-top: .2rem;
+  }
+
+  /* alternancia de filas */
+  tbody tr:nth-child(even) td { filter: brightness(.985); }
+
+  /* ── RESUMEN FINAL ───────────────────────────────────── */
+  .resumen {
+    background: var(--azul-oscuro);
+    color: #fff;
+    padding: 2.5rem 4rem;
+    margin-top: 3rem;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+  .resumen::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--rojo), var(--naranja), var(--dorado));
+  }
+  .resumen h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+    color: #f39c12;
+  }
+  .resumen-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .res-card {
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 3px;
+    padding: 1rem 1.2rem;
+  }
+  .res-card .num-grande {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    line-height: 1;
+    color: #f39c12;
+  }
+  .res-card .desc {
+    font-size: .78rem;
+    color: #a8c8e8;
+    margin-top: .3rem;
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: .04em;
+  }
+  .nota-final {
+    margin-top: 1.5rem;
+    font-size: .85rem;
+    color: #8bafd4;
+    font-style: italic;
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding-top: 1rem;
+    max-width: 900px;
+  }
+
+  /* footer */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: .75rem;
+    color: #aaa;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+</style>
+</head>
+<body>
+
+<!-- ─────────────────────────────────── HEADER ──── -->
+<header>
+  <div class="header-eyebrow">Análisis documental · Territorios Wayuú · Arroyo Guerrero · Riohacha, La Guajira</div>
+  <h1>Contradicciones entre la <span>Carta ESEPGUA (2026EPG0560)</span><br>
+  y las Memorias Hidrosanitarias de la PTAR</h1>
+  <p class="header-sub">
+    La gerente de ESEPGUA Andreina Susana García Pinto afirma que el proyecto se encuentra en "fase de planeación, estudios y diseños"
+    y que aún no existe ninguna decisión definitiva ni acto administrativo que adopte localización definitiva.
+    Los propios documentos técnicos de ESEPGUA (Memorias Hidrosanitarias, Contrato de Consultoría N.° 009/2022)
+    demuestran lo contrario con un nivel de detalle que es propio de la fase de diseño detallado.
+  </p>
+  <div class="header-meta">
+    <span class="meta-pill">Carta: 2026EPG0560 · 06/04/2026</span>
+    <span class="meta-pill">Firmante: Andreina S. García Pinto, Gerente General ESEPGUA</span>
+    <span class="meta-pill">Doc. técnico: Memorias Hidrosanitarias PTARD · Oct. 2025</span>
+    <span class="meta-pill">Elaborado: Análisis jurídico-técnico · Abril 2026</span>
+  </div>
+</header>
+
+<!-- ────────────────────────────────── LEYENDA ──── -->
+<div class="leyenda">
+  <span class="ley-item"><span class="dot dot-rojo"></span>CRÍTICA — Falsedad directa / contradicción irreconciliable</span>
+  <span class="ley-item"><span class="dot dot-naranja"></span>GRAVE — Omisión significativa o minimización fraudulenta</span>
+  <span class="ley-item"><span class="dot dot-azul"></span>TÉCNICA — Inconsistencia de categoría o etapa de proyecto</span>
+</div>
+
+<main>
+
+<!-- ═══════════════════════════════════════════════════════════
+     BLOQUE 1 — FASE DEL PROYECTO
+════════════════════════════════════════════════════════════ -->
+<section class="bloque">
+  <h2 class="bloque-titulo">I · Fase del proyecto: ¿planeación o diseño detallado?</h2>
+  <p class="bloque-intro">
+    La carta sostiene que el proyecto está en "fase de planeación, estudios y diseños".
+    Las Memorias Hidrosanitarias son el Tomo II de un estudio desarrollado bajo el Contrato de Consultoría N.° 009/2022 y contienen
+    diseños hidrosanitarios completos, memorias de cálculo, especificaciones técnicas y planos esquemáticos:
+    contenido inequívoco de diseño de detalle (fase de prefactibilidad-factibilidad avanzada/diseño).
+  </p>
+  <div class="tabla-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Aspecto</th>
+          <th>Lo que afirma la carta ESEPGUA (2026EPG0560)</th>
+          <th>Lo que demuestran las Memorias Hidrosanitarias</th>
+          <th>Naturaleza de la contradicción</th>
+          <th>Referencia documental</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="num">1</td>
+          <td class="aspecto">Fase declarada</td>
+          <td class="carta">
+            <div class="cita">"el proyecto PTAR Riohacha se encuentra actualmente en fase de planeación, estudios y diseños"</div>
+          </td>
+          <td class="memorias">
+            El documento es "Tomo II: Memorias Hidrosanitarias de la PTARD" del "Estudio General de Alternativas y Diseños de Detalle", bajo Contrato N.° 009/2022. Se presentan diseños dimensionados al horizonte año 2052 con 4 módulos de tratamiento, cálculos hidráulicos completos de cada unidad de proceso.
+            <div class="cita">Encabezado del documento y sección 12: "DETALLES DE EJECUCIÓN DEL PROYECTO — Determinación de Etapas de Inversión"</div>
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-critica">CRÍTICA</span><br>
+            Declarar "fase de planeación" cuando el consultor ya entregó un diseño con dimensionamiento de todas las unidades, especificaciones técnicas y planos esquemáticos implica una minimización deliberada del estado real de avance. Las Memorias constituyen un entregable formal del Contrato 009/2022, no un estudio preliminar.
+          </td>
+          <td class="referencia">
+            Carta, §3<br>
+            Memorias, Portada + §12.1–12.3
+          </td>
+        </tr>
+        <tr>
+          <td class="num">2</td>
+          <td class="aspecto">Estudios geotécnicos</td>
+          <td class="carta">
+            Implica que no existen decisiones definitivas sobre localización ni trabajos de campo vinculantes.
+          </td>
+          <td class="memorias">
+            Se ejecutaron 6 perforaciones SPT en el predio de la PTAR hasta 16 m de profundidad (firma GEOCON INGENIERÍA Y ARQUITECTURA SAS). Se determinaron capacidades portantes (1,21–34,81 kg/cm²), perfil estratigráfico y clasificación USC/AASHTO. Los apiques están georeferenciados con coordenadas IGAC específicas del predio.
+            <div class="cita">§5.2 Estudios Geotécnico + Ilustración 6 + Tablas 8, 9, 10</div>
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-critica">CRÍTICA</span><br>
+            Un estudio geotécnico con 6 perforaciones SPT, georeferenciación y capacidad portante calculada presupone un predio definido, acceso físico al terreno y toma de decisiones sobre localización definitiva. Esto contradice frontalmente la afirmación de que "no se ha adoptado localización definitiva".
+          </td>
+          <td class="referencia">
+            Carta, §3<br>
+            Memorias, §5.2 + Ilus. 6
+          </td>
+        </tr>
+        <tr>
+          <td class="num">3</td>
+          <td class="aspecto">Levantamiento topográfico</td>
+          <td class="carta">
+            No menciona trabajos físicos en territorio. Afirma que no ha habido "intervención física en territorio".
+          </td>
+          <td class="memorias">
+            Se realizó levantamiento topográfico fotogramétrico por el topógrafo ARLES MIGUEL BONILLA MENDOZA (TP: 01-13393 CNPT) con datum Magna Sirgas GMT12, georreferenciación con coordenadas IGAC, secciones transversales en corredor de 15 m. Se incluye plano topográfico del área proyectada (Ilustración 5).
+            <div class="cita">§5.1 Estudios Topográfico y Fotogramétricos + Ilustración 5</div>
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-critica">CRÍTICA</span><br>
+            Un levantamiento topográfico con equipo de precisión, datum geodésico y plano elaborado es inequívocamente "intervención física en territorio". La afirmación de la carta es literalmente falsa respecto al estado de los trabajos técnicos.
+          </td>
+          <td class="referencia">
+            Carta, §3<br>
+            Memorias, §5.1 + Ilus. 5
+          </td>
+        </tr>
+        <tr>
+          <td class="num">4</td>
+          <td class="aspecto">Localización del predio</td>
+          <td class="carta">
+            "sin que… se haya… expedición de acto administrativo que adopte localización definitiva"
+          </td>
+          <td class="memorias">
+            La localización está definida con coordenadas precisas: latitud 11°30'15.25"N, longitud 72°58'28.11"O, a 5,1 km de la entrada al casco urbano por la Troncal del Caribe. Se identifica como "predio de la PTAR" con mapa de localización, apiques georreferenciados y plano topográfico.
+            <div class="cita">§3 Ubicación Geográfica + Ilustración 1 + §5.2</div>
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-critica">CRÍTICA</span><br>
+            Tener coordenadas precisas, plano topográfico elaborado, estudios de suelos en ese predio y diseños dimensionados sobre esa localización es, en términos técnicos y jurídicos, haber adoptado una localización definitiva. La ausencia de un acto administrativo formal no contradice el hecho técnico.
+          </td>
+          <td class="referencia">
+            Carta, §3<br>
+            Memorias, §3 + Ilus. 1
+          </td>
+        </tr>
+        <tr>
+          <td class="num">5</td>
+          <td class="aspecto">Plazo de ejecución estimado</td>
+          <td class="carta">
+            Proyecto en etapa de "evaluación técnica, con observaciones en proceso de ajuste" ante el Ministerio de Vivienda.
+          </td>
+          <td class="memorias">
+            Las Memorias determinan un "Plazo de Ejecución sugerido de 20 meses que incluyen la ejecución de todas las obras" (§12.3). Se proyectan etapas de inversión con períodos de diseño calculados para 2027, 2035, 2038, 2045 y 2052 (Tabla 25).
+            <div class="cita">§12.3 + §12.1 + Tabla 25 Modulación del Tratamiento</div>
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-grave">GRAVE</span><br>
+            Calcular un plazo de ejecución de 20 meses y proyectar etapas de inversión por año es propio de un proyecto que ha superado la etapa de evaluación técnica preliminar. Estas determinaciones se realizan cuando la viabilidad ya está asumida internamente.
+          </td>
+          <td class="referencia">
+            Carta, §4<br>
+            Memorias, §12.1 + §12.3
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     BLOQUE 2 — LOCALIZACIÓN, DISEÑO Y OBRAS
+════════════════════════════════════════════════════════════ -->
+<section class="bloque">
+  <h2 class="bloque-titulo">II · Diseño detallado de obras: lo que la carta omite</h2>
+  <p class="bloque-intro">
+    La carta afirma que no existe "acto administrativo que adopte localización definitiva o autorice su construcción" y que no se ha iniciado
+    "ejecución de obra, intervención física en territorio, adquisición predial". Las Memorias presentan diseños constructivos completos para todas las unidades del sistema.
+  </p>
+  <div class="tabla-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Unidad de diseño</th>
+          <th>Afirmación implícita de la carta</th>
+          <th>Evidencia en Memorias Hidrosanitarias</th>
+          <th>Naturaleza de la contradicción</th>
+          <th>Referencia documental</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="num">6</td>
+          <td class="aspecto">EBAR N.° 3 y línea de impulsión</td>
+          <td class="carta">Sin mención. Implica que no hay diseños de infraestructura comprometida.
+          </td>
+          <td class="memorias">
+            La línea de impulsión desde la EBAR N.° 3 hasta el predio de la PTAR está incluida en los levantamientos topográficos. Se menciona que los dispositivos de pretratamiento "no se podrían integrar de manera precedente a la EBAR No. 3" — lo que implica que la EBAR existente ya está articulada al diseño. El "descole" se hará en el Arroyo Guerrero "aledaño a la localización de la nueva planta" (Introducción).
+            <div class="cita">§5.1 + §8.1 + Introducción §2</div>
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-grave">GRAVE</span><br>
+            La integración de la EBAR existente al nuevo diseño y el trazado de la línea de impulsión implican que la infraestructura comprometida ya está definida y que se ha intervenido sobre ella en términos de diagnóstico y diseño, lo que la carta silencia.
+          </td>
+          <td class="referencia">
+            Memorias, Intro + §5.1 + §8.1
+          </td>
+        </tr>
+        <tr>
+          <td class="num">7</td>
+          <td class="aspecto">Tren de tratamiento completo</td>
+          <td class="carta">
+            "fase de planeación, estudios y diseños"
+          </td>
+          <td class="memorias">
+            Tabla 26 (§12.2.1) especifica dimensiones constructivas de cada componente: Canal de Aproximación (4×1,5×1,5 m), 2 Rejillas de Arco Automático, 4 Tamices de Tambor 1,5 mm (3×0,9×0,9 m), 4 Reactores DAF (7,5×4×4 m), 4 Sedimentadores Primarios Alta Tasa (33,6×8,4×4 m), 4 Filtros Biológicos Percoladores (Ø 21 m, H=4,5 m), 4 Sedimentadores Secundarios Circulares (Ø 28 m, H=4,5 m), 6 Biodigestores de Lodos (Ø 23 m, H=7 m), 8 Lechos de Secado (4,5×3×1,1 m).
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-critica">CRÍTICA</span><br>
+            Contar con dimensiones constructivas completas para 10 categorías de obras con geometría paralelepipedal y cilíndrica, especificaciones de equipos (marcas, modelos, potencias) y planos esquemáticos anexos (Anexo 2) es diseño de detalle, no planeación. La carta oculta este avance.
+          </td>
+          <td class="referencia">
+            Carta, §3<br>
+            Memorias, §12.2.1 + Tabla 26
+          </td>
+        </tr>
+        <tr>
+          <td class="num">8</td>
+          <td class="aspecto">Modelación hidráulica QUAL2K</td>
+          <td class="carta">
+            No menciona modelaciones de vertimiento. Asevera que el PSMV está "pendiente de actualización, radicación y aprobación".
+          </td>
+          <td class="memorias">
+            Se realizó modelación QUAL2K-6.0 del comportamiento del Arroyo Guerrero ante la descarga de efluentes (Gráficos 12–14). Se analizó oxígeno disuelto, DBO, nitrógeno, fosfatos y temperatura del arroyo. El punto de vertimiento fue localizado en coordenadas específicas (5 msnm, donde el arroyo alcanza su mínimo).
+            <div class="cita">§5.3 Caracterización y Modelación Fuente Receptora + Gráficos 12–14 + Tabla 12</div>
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-critica">CRÍTICA</span><br>
+            La modelación QUAL2K es el requisito técnico habilitante del permiso de vertimiento (Art. 47, Res. 799/2021; Dec. 3930/2010). Haber realizado esta modelación con un punto de descarga definido en el Arroyo Guerrero contradice la afirmación de que el PSMV aún no ha sido siquiera "radicado" — implica que la decisión técnica de verter al arroyo ya está adoptada.
+          </td>
+          <td class="referencia">
+            Carta, §5<br>
+            Memorias, §5.3 + Gráficos 12–14
+          </td>
+        </tr>
+        <tr>
+          <td class="num">9</td>
+          <td class="aspecto">Planos esquemáticos (Anexo 2)</td>
+          <td class="carta">
+            No menciona la existencia de planos. Afirma que no existe "acto administrativo que […] autorice su construcción".
+          </td>
+          <td class="memorias">
+            Anexo 2 contiene los "Planos Esquemáticos PTARD" con disposición espacial de todas las unidades: biodigestores, filtros percoladores, sedimentadores, reactores DAF, lechos de secado, tamices y rejillas, con dimensiones rotuladas en el plano.
+            <div class="cita">Memorias, Anexo 2 — Planos Esquemáticos PTARD (pág. 85)</div>
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-grave">GRAVE</span><br>
+            La existencia de planos esquemáticos completos con distribución espacial de las obras es el antecedente inmediato de los planos constructivos. Negar un nivel de avance equivalente a "pre-construcción" mientras se cuenta con planos aprobados internamente constituye una minimización fraudulenta ante las comunidades.
+          </td>
+          <td class="referencia">
+            Carta, §3<br>
+            Memorias, Anexo 2
+          </td>
+        </tr>
+        <tr>
+          <td class="num">10</td>
+          <td class="aspecto">Caudales de diseño proyectados</td>
+          <td class="carta">
+            Proyecta incertidumbre sobre decisiones futuras.
+          </td>
+          <td class="memorias">
+            Tabla 16 proyecta caudales año a año de 2025 a 2052 (caudal máximo horario de 1.297,47 Lps en 2025 hasta 1.567,92 Lps en 2052). Caudal medio de diseño: 610 Lps. Se calculan factores pico para dimensionamiento de bombeo, procesos físicos y biorreactores, todo completamente definido.
+            <div class="cita">§6 Caudales de Diseño + Tablas 14–16</div>
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-tecnica">TÉCNICA</span><br>
+            Los caudales de diseño para horizonte 2052 año por año con factores pico aplicados son un insumo de diseño detallado (no de planeación). La Resolución MVCT 799/2021 (Art. 46) exige estos cálculos para el dimensionamiento de las unidades de tratamiento, lo que confirma que se está en etapa posterior a la viabilización técnica.
+          </td>
+          <td class="referencia">
+            Memorias, §6 + Tablas 14–16
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     BLOQUE 3 — LICENCIA AMBIENTAL Y PSMV
+════════════════════════════════════════════════════════════ -->
+<section class="bloque">
+  <h2 class="bloque-titulo">III · Licencia ambiental, PSMV y autoridad competente</h2>
+  <p class="bloque-intro">
+    La carta reconoce que el PSMV está pendiente de radicación, pero presenta esto como un obstáculo normal de proceso.
+    Las Memorias revelan que el diseño se realizó invocando normas ambientales como si la autoridad ambiental ya hubiera fijado
+    objetivos de calidad y que el punto de vertimiento al Arroyo Guerrero ya fue definido técnicamente.
+  </p>
+  <div class="tabla-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Aspecto ambiental</th>
+          <th>Afirmación carta ESEPGUA</th>
+          <th>Evidencia en Memorias Hidrosanitarias</th>
+          <th>Naturaleza de la contradicción</th>
+          <th>Referencia documental</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="num">11</td>
+          <td class="aspecto">Objetivo de calidad del vertimiento</td>
+          <td class="carta">
+            "el proyecto no se encuentra en fase de licenciamiento ambiental y […] el PSMV se encuentra pendiente de actualización, radicación y aprobación"
+          </td>
+          <td class="memorias">
+            Las Memorias citan como normativa técnica aplicable las "Resoluciones MADS 631/2015, 883/2018 y 699/2021 […] garantizando el cumplimiento de los objetivos de calidad establecidos por la autoridad ambiental correspondiente, según lo dispuesto en el Plan de Ordenamiento del Recurso Hídrico – PORH". Toda la modelación QUAL2K se realizó "a fin de conocer el grado de asimilación de los efluentes de la PTAR del Distrito de Riohacha" para el Arroyo Guerrero.
+            <div class="cita">§5.3 (p.30) + §2 Marco Jurídico</div>
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-critica">CRÍTICA</span><br>
+            Diseñar el sistema con base en los objetivos de calidad establecidos por CORPOGUAJIRA (invocando el PORH) y modelar la capacidad de asimilación del cuerpo receptor presupone una interlocución técnica con la autoridad ambiental que la carta omite. No se puede cumplir con "los objetivos de calidad establecidos por la autoridad ambiental" si ni siquiera se ha presentado el PSMV.
+          </td>
+          <td class="referencia">
+            Carta, §5<br>
+            Memorias, §5.3 + §2
+          </td>
+        </tr>
+        <tr>
+          <td class="num">12</td>
+          <td class="aspecto">Punto de descarga al Arroyo Guerrero</td>
+          <td class="carta">
+            Silencia que el diseño contempla verter al Arroyo Guerrero, cauce sagrado del territorio Wayuú.
+          </td>
+          <td class="memorias">
+            La Introducción indica explícitamente: "el descole se hará en el arroyo Guerrero, aledaño a la localización de la nueva planta". La modelación QUAL2K determinó el punto de vertimiento proyectado en la cota mínima de 5 msnm del arroyo (Ilustración 4). Se calculó Q95 de la cuenca como caudal de referencia para la dilución.
+            <div class="cita">Memorias, Introducción (p.7) + §5.3 + Ilus. 3 y 4</div>
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-critica">CRÍTICA</span><br>
+            La decisión de verter los efluentes tratados al Arroyo Guerrero es la afectación directa al territorio y al cauce hídrico sagrado del pueblo Wayuú. Esta decisión está adoptada técnicamente en el diseño (Contrato 009/2022) pero la carta no la menciona en ningún momento, lo que configura un ocultamiento de la principal afectación territorial.
+          </td>
+          <td class="referencia">
+            Carta (omisión total)<br>
+            Memorias, Intro + §5.3 + Ilus. 4
+          </td>
+        </tr>
+        <tr>
+          <td class="num">13</td>
+          <td class="aspecto">Decreto MADS 0043/2024 (protección especial de fuentes hídricas de La Guajira)</td>
+          <td class="carta">
+            No menciona el Decreto 0043/2024. Trata la ausencia del PSMV como un trámite administrativo pendiente rutinario.
+          </td>
+          <td class="memorias">
+            El Decreto MADS 0043/2024 es la primera norma citada en el Marco Jurídico Aplicable (§2) y también en §7.2 Normatividad Técnica y Ambiental. Este decreto adopta "medidas para la protección especial de las fuentes hídricas del departamento de La Guajira". Su inclusión demuestra que los diseñadores reconocen el estatus especial de protección ambiental de estos cuerpos hídricos.
+            <div class="cita">Memorias, §2 Marco Jurídico + §7.2 Normatividad</div>
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-grave">GRAVE</span><br>
+            Si el propio marco normativo reconocido por los diseñadores coloca al arroyo Guerrero bajo protección especial (Decreto 0043/2024), la ausencia de licencia ambiental y PSMV no es un trámite menor: es la violación del régimen de protección reforzada aplicable. La carta lo oculta.
+          </td>
+          <td class="referencia">
+            Carta (omisión)<br>
+            Memorias, §2 + §7.2
+          </td>
+        </tr>
+        <tr>
+          <td class="num">14</td>
+          <td class="aspecto">Calidad actual del vertimiento al mar</td>
+          <td class="carta">
+            Describe el PSMV como requisito futuro, sin mencionar el estado del vertimiento actual.
+          </td>
+          <td class="memorias">
+            Tabla 7 presenta la caracterización del vertimiento actual al Mar (Laboratorio Nancy Flórez García SAS, 5/08/2025): DBO5 = 336 mg/L, DQO = 556 mg/L, SST = 168 mg/L, Coliformes Termotolerantes = 1,6×10⁷ NMP/100 mL, Grasas y Aceites = 100 mg/L. Estos valores superan ampliamente los límites de la Resolución MADS 631/2015.
+            <div class="cita">Memorias, §4.3 + Tabla 7 (p.20)</div>
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-tecnica">TÉCNICA</span><br>
+            El contexto de urgencia con el que ESEPGUA justifica el proyecto (la descarga sin tratamiento al mar) contrasta con la inexistencia de PSMV vigente y la falta de licencia ambiental para el nuevo vertimiento al arroyo. La carta usa la urgencia sanitaria para silenciar los incumplimientos ambientales del proyecto.
+          </td>
+          <td class="referencia">
+            Memorias, §4.3 + Tabla 7
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     BLOQUE 4 — CONSULTA PREVIA Y COMUNIDADES
+════════════════════════════════════════════════════════════ -->
+<section class="bloque">
+  <h2 class="bloque-titulo">IV · Consulta previa, comunidades étnicas y territorio Wayuú</h2>
+  <p class="bloque-intro">
+    La carta insiste en que la determinación de consulta previa corresponde "exclusivamente al Ministerio del Interior" y que
+    la certificación de no-afectación fue emitida por la Secretaría de Planeación Distrital.
+    Las Memorias revelan que el proyecto fue diseñado sobre el territorio de la cuenca del Arroyo Guerrero
+    sin ninguna mención a las comunidades Wayuú que lo habitan.
+  </p>
+  <div class="tabla-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Aspecto</th>
+          <th>Afirmación carta ESEPGUA</th>
+          <th>Evidencia en Memorias Hidrosanitarias</th>
+          <th>Naturaleza de la contradicción</th>
+          <th>Referencia documental</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="num">15</td>
+          <td class="aspecto">Menciones a comunidades indígenas en el diseño</td>
+          <td class="carta">
+            "conforme a certificación expedida por la Secretaría de Planeación Distrital en febrero de 2025, el proyecto no registraba afectación a comunidades indígenas en el área inicialmente definida"
+          </td>
+          <td class="memorias">
+            Las Memorias Hidrosanitarias (85 páginas de diseño técnico) no contienen ninguna mención a comunidades Wayuú, consulta previa, derechos territoriales indígenas, ni a la Ranchería Mmapaaewainyusu que habita el territorio de Arroyo Guerrero. El "área de influencia" del proyecto se circunscribe al análisis hidrológico de la cuenca.
+            <div class="cita">Todo el documento — ausencia sistemática de referencias étnicas</div>
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-critica">CRÍTICA</span><br>
+            Un diseño de detalle que comprende estudios de suelos, topografía, análisis hidrológico y planos sobre un territorio Wayuú sin ninguna mención a las comunidades presupone que la consulta previa fue tratada como inexistente desde la elaboración del Contrato 009/2022. La "certificación" de la Secretaría de Planeación (entidad sin competencia legal para certificar presencia étnica) ya fue impugnada; las Memorias confirman que el diseño procedió sobre esa base ilegal.
+          </td>
+          <td class="referencia">
+            Carta, §2 y §6<br>
+            Memorias (ausencia total)
+          </td>
+        </tr>
+        <tr>
+          <td class="num">16</td>
+          <td class="aspecto">Cuenca del Arroyo Guerrero como territorio sagrado</td>
+          <td class="carta">
+            Describe el arroyo únicamente como "fuente receptora" del vertimiento. No reconoce su valor cultural ni el significado territorial para el pueblo Wayuú.
+          </td>
+          <td class="memorias">
+            §4.3 describe el Arroyo Guerrero como uno de los "Arroyos de gran importancia" del municipio. §4.3 y la Ilustración 3 mapean su microcuenca en detalle. El análisis hidrológico e hidráulico trata el arroyo exclusivamente como receptor de aguas residuales tratadas, sin ninguna consideración sobre su uso cultural, espiritual o de subsistencia por las comunidades Wayuú.
+            <div class="cita">Memorias, §4.3 + Ilus. 2, 3 y 4</div>
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-grave">GRAVE</span><br>
+            Desde la perspectiva del Convenio 169 OIT y la jurisprudencia constitucional colombiana (SU-123/2018), el diseño de un proyecto que altera permanentemente el régimen hídrico de un arroyo sagrado Wayuú sin consulta configura una afectación directa a los derechos territoriales, independientemente de la certificación institucional.
+          </td>
+          <td class="referencia">
+            Memorias, §4.3 + Ilus. 3–4<br>
+            Carta, §2
+          </td>
+        </tr>
+        <tr>
+          <td class="num">17</td>
+          <td class="aspecto">Riesgo de inundación del predio sobre el arroyo</td>
+          <td class="carta">
+            Silencia cualquier riesgo de afectación al cauce.
+          </td>
+          <td class="memorias">
+            §5.2 (Estudios Geotécnicos) advierte: "se deberá controlar los niveles de inundación que puedan presentarse debido al aumento del agua del Arroyo Guerrero. Aunque una primera inspección de la zona indica que el agua no ha inundado largo tiempo la zona, si se encontraron zonas de charcos que indican retención en zonas vecinas".
+            <div class="cita">Memorias, §5.2 (p.28)</div>
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-grave">GRAVE</span><br>
+            El propio consultor advierte sobre riesgos de inundación desde el Arroyo Guerrero sobre el predio de la PTAR. Una planta de tratamiento de aguas residuales inundable representa un riesgo de contaminación masiva del cauce y del territorio Wayuú. Esta información fue omitida por ESEPGUA en su carta a las comunidades.
+          </td>
+          <td class="referencia">
+            Memorias, §5.2 (p.28)<br>
+            Carta (omisión)
+          </td>
+        </tr>
+        <tr>
+          <td class="num">18</td>
+          <td class="aspecto">Uso agrícola de lodos sobre territorio</td>
+          <td class="carta">
+            No menciona el manejo de lodos ni su disposición en el territorio.
+          </td>
+          <td class="memorias">
+            §10.3 recomienda entregar los lodos estabilizados "a organizaciones campesinas para la fertilización de suelos como abonos orgánicos". §10.3 detalla los parámetros del lecho de secado, con producción total de 18.169 Kg/día de lodos secos. La disposición en territorio circundante nunca fue consultada con las comunidades Wayuú.
+            <div class="cita">Memorias, §10.3 (pp. 69–73) + Tabla 23</div>
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-grave">GRAVE</span><br>
+            La disposición de 18 toneladas diarias de biosólidos en el territorio de la cuenca del Arroyo Guerrero — decisión contenida en el diseño — es una afectación territorial adicional que nunca fue incluida en la evaluación de impacto ni comunicada a las comunidades Wayuú.
+          </td>
+          <td class="referencia">
+            Memorias, §10.3 + Tabla 23<br>
+            Carta (omisión)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     BLOQUE 5 — FINANCIADORES Y CONTRATISTAS
+════════════════════════════════════════════════════════════ -->
+<section class="bloque">
+  <h2 class="bloque-titulo">V · Financiadores internacionales, Aqualia y compromisos contractuales</h2>
+  <p class="bloque-intro">
+    La carta no menciona el papel de Aqualia (empresa española) ni del BID como fuentes de compromiso financiero previo al
+    otorgamiento de licencias ambientales o la realización de consulta previa.
+    Las Memorias revelan datos de calidad reportados por Aqualia y mencionan criterios del BID para las etapas de inversión.
+  </p>
+  <div class="tabla-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Aspecto</th>
+          <th>Afirmación carta ESEPGUA</th>
+          <th>Evidencia en Memorias Hidrosanitarias</th>
+          <th>Naturaleza de la contradicción</th>
+          <th>Referencia documental</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="num">19</td>
+          <td class="aspecto">Participación de Aqualia en datos de diseño</td>
+          <td class="carta">
+            No menciona a Aqualia. La carta presenta el proyecto como una iniciativa exclusiva de ESEPGUA/Alcaldía.
+          </td>
+          <td class="memorias">
+            Tabla 3 y 4 presentan "Caracterización de las Aguas Residuales. AQUALIA 2023–2024" con 10 muestras propias de Aqualia. La firma española es fuente directa de datos de diseño para los parámetros de calidad del afluente. Esto evidencia que Aqualia ya opera en el sistema de alcantarillado y tiene presencia activa en el proyecto.
+            <div class="cita">Memorias, §4.2 + Tablas 3 y 4</div>
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-grave">GRAVE</span><br>
+            La participación técnica de Aqualia como fuente de datos de diseño demuestra que el proyecto tiene una dimensión contractual internacional previa a la consulta previa y al licenciamiento ambiental. Esto configura el patrón de fait accompli documentado ante los órganos internacionales.
+          </td>
+          <td class="referencia">
+            Carta (omisión total de Aqualia)<br>
+            Memorias, §4.2 + Tablas 3–4
+          </td>
+        </tr>
+        <tr>
+          <td class="num">20</td>
+          <td class="aspecto">Lineamientos del BID en las etapas de inversión</td>
+          <td class="carta">
+            Silencia la participación del BID como condicionante de la estructura financiera del proyecto.
+          </td>
+          <td class="memorias">
+            §12.1 Determinación de Etapas de Inversión: "Las etapas de inversión del sistema de Tratamiento de Aguas Residuales domésticas se desarrollará siguiendo los lineamientos del Banco Interamericano de Desarrollo – BID, con fundamento en los factores de Economía de Escala utilizados entre 0,5 a 0,8 y la tasa de redescuento equivalente a la Tasa social del 9% efectivo anual, según la Resolución 1092 de 2022."
+            <div class="cita">Memorias, §12.1 (p.75)</div>
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-critica">CRÍTICA</span><br>
+            Las etapas de inversión han sido estructuradas conforme a los lineamientos del BID. Esto implica que existe un condicionamiento financiero internacional anterior al cumplimiento de los requisitos de derecho interno (consulta previa, licencia ambiental). La carta oculta este compromiso que refuerza el carácter de fait accompli del proyecto.
+          </td>
+          <td class="referencia">
+            Carta (omisión)<br>
+            Memorias, §12.1
+          </td>
+        </tr>
+        <tr>
+          <td class="num">21</td>
+          <td class="aspecto">Cubrimiento actual del alcantarillado sanitario</td>
+          <td class="carta">
+            No cuantifica el estado del sistema existente.
+          </td>
+          <td class="memorias">
+            §4.1 señala que el alcantarillado sanitario de Riohacha "aún se encuentra en proceso de ampliación y optimización; la cobertura actual aproximada alcanza al 80% de la población" y que "la red de colectores tiene una longitud aproximada de 220 Km". La expansión del sistema "sólo pudo llegar hasta la calle 40".
+            <div class="cita">Memorias, §4.1 (p.12) — citando ASSA, 2019</div>
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-tecnica">TÉCNICA</span><br>
+            El diseño contempla caudales que incluyen el 80% de cobertura actual y proyecciones hasta 2052. Esto vincula el proyecto a la infraestructura existente de manera que la afirmación de "sin adquisición predial" o "sin intervención física" resulta técnicamente inconsistente: la PTAR es un nodo articulado a 220 km de colectores ya construidos.
+          </td>
+          <td class="referencia">
+            Memorias, §4.1
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     BLOQUE 6 — INCONSISTENCIAS ADICIONALES
+════════════════════════════════════════════════════════════ -->
+<section class="bloque">
+  <h2 class="bloque-titulo">VI · Inconsistencias técnicas adicionales y omisiones en la carta</h2>
+  <div class="tabla-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Aspecto</th>
+          <th>Afirmación carta ESEPGUA</th>
+          <th>Evidencia en Memorias Hidrosanitarias</th>
+          <th>Naturaleza de la contradicción</th>
+          <th>Referencia documental</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="num">22</td>
+          <td class="aspecto">Caracterización bacteriológica con muestras de agosto 2025</td>
+          <td class="carta">
+            La carta es de abril 2026 y presenta el proyecto como aún en evaluación preliminar.
+          </td>
+          <td class="memorias">
+            En agosto 5 de 2025 se realizó nueva caracterización de aguas residuales (Laboratorio Nancy Flórez García SAS), cuyos resultados se incorporan como Tabla 11 (caracterización de diseño). Esta muestra reciente confirma que el consultor siguió trabajando en el diseño después de que las comunidades presentaron su requerimiento de suspensión.
+            <div class="cita">Memorias, §5.3 + Tabla 11 + Tabla 7 (p.20 y 30)</div>
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-grave">GRAVE</span><br>
+            El consultor realizó muestreos de campo en agosto 2025 — es decir, continuó el trabajo técnico mientras la controversia con las comunidades estaba en curso — sin que ESEPGUA informara de ello a las comunidades ni suspendiera los trabajos. Esto contradice la actitud de "evaluación" que la carta proyecta.
+          </td>
+          <td class="referencia">
+            Memorias, §5.3 + Tabla 7 y 11
+          </td>
+        </tr>
+        <tr>
+          <td class="num">23</td>
+          <td class="aspecto">Modelación QUAL2K de diciembre 2025</td>
+          <td class="carta">
+            La carta no menciona ninguna modelación realizada.
+          </td>
+          <td class="memorias">
+            Los gráficos de resultados de la modelación QUAL2K están rotulados "Ay Guerrero (12/21/2025)" — es decir, fueron generados el 21 de diciembre de 2025 (Gráficos 12–14). El requerimiento de suspensión de las comunidades fue recibido el 24 de marzo de 2026, meses después.
+            <div class="cita">Memorias, Gráficos 12, 13 y 14 (pp. 32–34)</div>
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-critica">CRÍTICA</span><br>
+            La modelación hidráulica del punto de vertimiento al Arroyo Guerrero fue ejecutada en diciembre 2025, mientras la consulta previa aún no había sido realizada. Esto demuestra que el diseño del impacto ambiental sobre el cuerpo hídrico sagrado se realizó preconsulta, configurando una violación directa del derecho a la consulta previa libre e informada.
+          </td>
+          <td class="referencia">
+            Memorias, Gráficos 12–14<br>
+            Carta (posterior a la modelación)
+          </td>
+        </tr>
+        <tr>
+          <td class="num">24</td>
+          <td class="aspecto">Situaciones de riesgo de defensora territorial</td>
+          <td class="carta">
+            "las situaciones de riesgo expuestas han sido puestas en conocimiento de las entidades competentes, como la Unidad Nacional de Protección, la cual ha señalado la necesidad de surtir los procedimientos establecidos"
+          </td>
+          <td class="memorias">
+            Las Memorias no contienen ninguna referencia a riesgo para defensores territoriales ni a medidas de protección. Sin embargo, el diseño fue elaborado y los trabajos de campo ejecutados en un contexto de riesgo documentado para la líder Wayuú Clarena Fonseca Uriana.
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-grave">GRAVE</span><br>
+            ESEPGUA reconoce las situaciones de riesgo pero las remite a procedimientos de la UNP, sin asumir ninguna responsabilidad institucional por la continuación del proyecto en un contexto de amenaza documentada contra las comunidades que se oponen. La carta traslada la responsabilidad sin comprometerse con la suspensión solicitada.
+          </td>
+          <td class="referencia">
+            Carta, §7<br>
+            Memorias (ausencia de análisis de riesgo social)
+          </td>
+        </tr>
+        <tr>
+          <td class="num">25</td>
+          <td class="aspecto">Caracterización de la cuenca como "intermitente"</td>
+          <td class="carta">
+            No menciona el régimen hídrico del arroyo.
+          </td>
+          <td class="memorias">
+            §4.3 señala que "La cuenca del Arroyo Guerrero está conformada principalmente por una serie de drenajes de caudal intermitente, los cuales se caracterizan por presentar flujo de agua durante la época de lluvias". La modelación QUAL2K reconoce como variable crítica la "Pendiente baja: Limita reaireación natural, favoreciendo hipoxia."
+            <div class="cita">Memorias, §4.3 (p.22) + §5.3 Variables Críticas</div>
+          </td>
+          <td class="contradiccion">
+            <span class="badge badge-tecnica">TÉCNICA</span><br>
+            Un cauce de régimen intermitente (sólo fluye en época de lluvias) tiene capacidad de dilución y reaireación radicalmente menor que un río permanente. El propio modelo advierte riesgo de hipoxia. Diseñar el vertimiento sobre un arroyo intermitente sagrado Wayuú sin consulta constituye una afectación técnicamente documentada e irresponsable.
+          </td>
+          <td class="referencia">
+            Memorias, §4.3 + §5.3<br>
+            Carta (omisión)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────── RESUMEN ──── -->
+<div class="resumen">
+  <h2>Síntesis del análisis: lo que los documentos demuestran</h2>
+  <p style="color:#a8c8e8; font-size:.9rem; max-width:850px;">
+    El cruce entre la carta 2026EPG0560 de Andreina García Pinto y las Memorias Hidrosanitarias (Contrato 009/2022)
+    revela una estrategia sistemática de minimización del estado real de avance del proyecto,
+    con el efecto de vaciar materialmente el derecho a la consulta previa.
+  </p>
+  <div class="resumen-grid">
+    <div class="res-card">
+      <div class="num-grande">25</div>
+      <div class="desc">contradicciones documentadas</div>
+    </div>
+    <div class="res-card">
+      <div class="num-grande">10</div>
+      <div class="desc">contradicciones CRÍTICAS (falsedad directa)</div>
+    </div>
+    <div class="res-card">
+      <div class="num-grande">11</div>
+      <div class="desc">contradicciones GRAVES (omisión significativa)</div>
+    </div>
+    <div class="res-card">
+      <div class="num-grande">4</div>
+      <div class="desc">inconsistencias TÉCNICAS de categoría</div>
+    </div>
+    <div class="res-card">
+      <div class="num-grande">0</div>
+      <div class="desc">menciones a comunidades Wayuú en 85 páginas de diseño</div>
+    </div>
+    <div class="res-card">
+      <div class="num-grande">21/12/2025</div>
+      <div class="desc">fecha de la modelación de vertimiento al arroyo sagrado (pre-consulta)</div>
+    </div>
+  </div>
+  <p class="nota-final">
+    <strong style="color:#f39c12;">Conclusión jurídica central:</strong>
+    El proyecto no se encontraba en "fase de planeación" al momento de la carta.
+    Contaba con: (1) predio georreferenciado con estudios de suelos y topografía, (2) diseños dimensionados de 10 unidades de proceso
+    con planos esquemáticos, (3) caudales proyectados 2025–2052, (4) modelación hidráulica del vertimiento al Arroyo Guerrero
+    (dic. 2025), (5) estructura de inversión alineada a lineamientos BID, y (6) datos de campo de Aqualia incorporados al diseño.
+    Todo ello sin consulta previa, sin licencia ambiental y sin PSMV aprobado.
+    La carta de ESEPGUA, leída frente a sus propias Memorias Hidrosanitarias, configura un supuesto de inducción en error
+    a las comunidades indígenas afectadas, con efectos sobre el ejercicio del derecho fundamental a la consulta previa
+    (Arts. 330 CP, Convenio 169 OIT, SU-123/2018, T-556/2017).
+  </p>
+</div>
+
+</main>
+
+<footer>
+  Documento elaborado con base en fuentes primarias: Carta ESEPGUA 2026EPG0560 (06/04/2026) ·
+  Memorias Hidrosanitarias PTARD Riohacha — Contrato Consultoría N.° 009/2022 (UT Consultoría, Oct. 2025) ·
+  Uso exclusivo en proceso de defensa territorial Wayuú — Arroyo Guerrero · Riohacha, La Guajira · Colombia
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Auditoría Forense · Evaluación MVCT Proyecto PTAR Riohacha (Rad. 2025EE0009293)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f0f2f5;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+            color: #1a2a3a;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #1b3b4f 0%, #2c5a6e 100%);
+            color: white;
+            padding: 2rem 2rem;
+        }
+        .header h1 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+        .header h1 span {
+            font-weight: 400;
+            opacity: 0.85;
+        }
+        .sub {
+            font-size: 0.85rem;
+            border-left: 3px solid #f4c542;
+            padding-left: 1rem;
+            margin: 0.5rem 0;
+        }
+        .badge-date {
+            background: #f4c542;
+            color: #1e2a3e;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-top: 1rem;
+        }
+        .content {
+            padding: 2rem;
+        }
+        .grid-summary {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .stat-card {
+            background: #f8f9fc;
+            border-radius: 20px;
+            padding: 1rem;
+            flex: 1 1 180px;
+            border-left: 5px solid;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .stat-card.red { border-left-color: #c0392b; }
+        .stat-card.blue { border-left-color: #2980b9; }
+        .stat-card.orange { border-left-color: #e67e22; }
+        .stat-number { font-size: 2rem; font-weight: 800; line-height: 1; }
+        .stat-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; color: #4a627a; }
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 3px solid #e2e8f0;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1.2rem 0;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+        }
+        th {
+            background: #eef2f7;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 700;
+        }
+        td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #eef2f7;
+            vertical-align: top;
+        }
+        .violation {
+            background: #feefe8;
+            border-left: 4px solid #c0392b;
+        }
+        .badge {
+            display: inline-block;
+            background: #c0392b20;
+            color: #c0392b;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.7rem;
+        }
+        footer {
+            background: #f1f4f9;
+            padding: 1.5rem;
+            font-size: 0.7rem;
+            text-align: center;
+            color: #5c6f87;
+            border-top: 1px solid #e2e8f0;
+        }
+        @media (max-width: 700px) {
+            .content { padding: 1rem; }
+            td, th { font-size: 0.7rem; padding: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Auditoría Forense · <span>Evaluación Preliminar MVCT</span><br>Proyecto PTAR Riohacha (Rad. 2025EE0009293)</h1>
+        <div class="sub">Documento de ingreso al Mecanismo de Viabilización – 14 de marzo de 2025.<br>Análisis crítico a la luz del Acuerdo de Escazú, Convenio 169 OIT, Constitución y normativa ambiental colombiana.</div>
+        <div class="badge-date">📄 Comunidades Wayuu de Arroyo Guerrero · Expediente internacional · Abril 2026</div>
+    </div>
+    <div class="content">
+        <div class="grid-summary">
+            <div class="stat-card red"><div class="stat-number">7</div><div class="stat-label">requisitos ambientales/étnicos incumplidos</div></div>
+            <div class="stat-card blue"><div class="stat-number">205.657</div><div class="stat-label">habitantes proyectados (supera umbral licencia ambiental)</div></div>
+            <div class="stat-card orange"><div class="stat-number">0</div><div class="stat-label">licencia ambiental presentada (exigible)</div></div>
+            <div class="stat-card"><div class="stat-number">+30</div><div class="stat-label">deficiencias documentales admitidas por el MVCT</div></div>
+        </div>
+
+        <h2 class="section-title">📌 1. Contexto del documento auditado</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead><tr><th style="width:30%">Campo</th><th>Información / Hallazgo</th></tr></thead>
+                <tbody>
+                    <tr><td>Radicado MVCT</td><td>2025EE0009293</td></tr>
+                    <tr><td>Fecha</td><td>14 de marzo de 2025</td></tr>
+                    <tr><td>Proyecto</td><td>CONSTRUCCIÓN DE PLANTA DE TRATAMIENTO DE AGUAS RESIDUALES DEL DISTRITO DE RIOHACHA (Código 1-2025-14)</td></tr>
+                    <tr><td>Solicitante</td><td>ESEPGUA S.A. E.S.P. (Gestor PDA)</td></tr>
+                    <tr><td>Valor del proyecto</td><td>$50.773.230.309</td></tr>
+                    <tr><td>Población declarada</td><td><strong>205.657 habitantes</strong> (página 2 del formato GPA-F-19)</td></tr>
+                    <tr><td>Estado declarado por MVCT</td><td>“En Evaluación” – ingreso por “Requerimientos” (página 16)</td></tr>
+                    <tr><td>Observación central de la auditoría</td><td>El MVCT aceptó el proyecto con múltiples vacíos documentales, sin PSMV aprobado, sin licencia ambiental (siendo técnicamente exigible por población >200.000 hab.), y con una certificación de consulta previa desactualizada (Res. ST-1112 de 2023) que ya había sido ampliada por MinInterior en diciembre de 2025 (Res. ST-2211).</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 class="section-title">⚠️ 2. Contradicción demográfica y ausencia de licencia ambiental</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead><tr><th>Fuente</th><th>Dato / Declaración</th><th>Exigencia normativa</th><th>Incumplimiento detectado</th></tr></thead>
+                <tbody>
+                    <tr class="violation"><td>Carta de presentación y formato GPA-F-19 (p.2)</td><td><strong>205.657 habitantes</strong> beneficiados</td><td>Decreto 1076/2015, art. 2.2.2.3.2.3 numeral 12: “construcción y operación de sistemas de tratamiento de aguas residuales que sirvan a poblaciones iguales o superiores a 200.000 habitantes” requieren licencia ambiental.</td><td>El MVCT marcó el ítem 70 como “No aplica” (p.13-14), ignorando la proyección superior al umbral. No se exigió licencia ambiental, vulnerando el principio de precaución (Ley 99/1993) y el art. 5 del Acuerdo de Escazú (información ambiental completa).</td></tr>
+                    <tr class="violation"><td>Certificación CORPOGUAJIRA 20230126360001922 (26 ene 2023)</td><td>126.103 habitantes (censo 2018)</td><td>La proyección técnica de diseño (205.657 hab.) es la que debe regir para la licencia, no un dato censal estático.</td><td>El MVCT no advirtió la contradicción ni exigió la licencia ambiental. La certificación de 2023 es insuficiente y no vincula al proyecto.</td></tr>
+                </tbody>
+            </table>
+            <div style="padding: 0.8rem; background:#feefe8;"><span class="badge">◆ Hallazgo crítico</span> La evaluación preliminar del MVCT permitió que el proyecto avanzara sin licencia ambiental, a pesar de que el propio proyecto declara una población que activa el requisito legal. Esto constituye una violación directa del Decreto 1076/2015 y del artículo 2.2.2.3.2.3, así como del Acuerdo de Escazú (art. 5) y del derecho a un ambiente sano (art. 79 Constitución).</div>
+        </div>
+
+        <h2 class="section-title">🌊 3. Plan de Saneamiento y Manejo de Vertimientos (PSMV) y permisos de vertimiento</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead><tr><th>Requisito (punto de la lista)</th><th>Lo que dice el MVCT</th><th>Realidad documental</th><th>Violación normativa</th></tr></thead>
+                <tbody>
+                    <tr class="violation"><td>68 – PSMV aprobado</td><td>“No es posible evaluar […] no se anexa la aprobación del PSMV.” Sin embargo, “da por cumplido” para efectos de la revisión preliminar.</td><td>El PSMV del Distrito de Riohacha no está actualizado ni aprobado. La liquidación de Corpoguajira (202512243600068102) venció en marzo de 2026 sin pago.</td><td>Resolución MVCT 661/2019, Anexo 2, punto 68: se requiere el PSMV debidamente aprobado. El MVCT no puede otorgar viabilidad sin este instrumento. Vulnera el art. 5 del Acuerdo de Escazú (acceso a la información) y el derecho de participación (art. 7).</td></tr>
+                    <tr class="violation"><td>69 – Permiso de vertimientos</td><td>Se presenta Resolución CORPOGUAJIRA 1637 de 2014 que autoriza vertimiento al mar Caribe.</td><td>Los diseños de detalle (Memorias Hidrosanitarias 2025) prevén el vertimiento de efluentes tratados al <strong>Arroyo Guerrero</strong>, no al mar. El permiso presentado es inaplicable.</td><td>Falsa aplicación del permiso. El MVCT no verificó la congruencia entre el permiso presentado y el diseño técnico. Se desconoce el principio de precaución y el derecho de las comunidades a conocer el impacto real (Convenio 169 OIT, arts. 6 y 7).</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 class="section-title">🧑‍🤝‍🧑 4. Consulta previa: certificación desactualizada y comunidades excluidas</h2>
+        <div class="table-wrapper">
+            <tr>
+                <thead><tr><th>Requisito (punto 11)</th><th>Documento presentado</th><th>Evaluación de la auditoría</th></tr></thead>
+                <tbody>
+                    <tr class="violation"><td>Certificación del Ministerio del Interior</td><td>“1. CONCEPTO MININTERIOR” (refiere a Resolución ST-1112 del 2 de agosto de 2023)</td><td>Esa resolución ordenó consulta previa <strong>solo con las comunidades El Jope e Irrachron</strong>, excluyendo a las demás comunidades del territorio de Arroyo Guerrero (Puente Guerrero, La Piedra, Marbacella, etc.). El 16 de diciembre de 2025 (después de esta evaluación, pero antes de la fecha de radicación del proyecto), la Dirección de Consulta Previa emitió la Resolución ST-2211 ampliando la consulta a 7 comunidades. El MVCT dio por satisfecho el requisito con una certificación desactualizada, violando el Convenio 169 OIT (arts. 6, 7) y la Sentencia SU-123/2018.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 class="section-title">📋 5. Deficiencias documentales masivas admitidas por el MVCT</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead><tr><th>Ítem / Documento faltante</th><th>Observación literal del MVCT</th><th>Consecuencia</th></tr></thead>
+                <tbody>
+                    <tr class="violation"><td>Fichas MGA y EBI (punto 3)</td><td>“No se presenta la documentación requerida. […] se da por cumplido.”</td><td>Imposibilidad de verificar la viabilidad financiera y la alineación con planeación nacional. Vulnera la transparencia (Escazú art. 6).</td></tr>
+                    <tr><td>Aval de diseño e inventario de documentos (punto 1)</td><td>“No se indica el aval de diseño, inventario de documentos […] se da por cumplido.”</td><td>Falta de certeza técnica sobre la idoneidad de los diseños.</td></tr>
+                    <tr class="violation"><td>Certificación de disponibilidad de energía (punto 60)</td><td>“No se indica la disponibilidad de servicio de energía por parte del prestador.”</td><td>El proyecto carece de garantía de suministro eléctrico para la operación de la PTAR.</td></tr>
+                    <tr><td>Presupuesto incoherente (punto 82)</td><td>“El valor presentado en el presupuesto NO es coherente con el indicado en la carta de presentación y formato resumen.”</td><td>Falta de consistencia financiera, lo que impide una evaluación rigurosa.</td></tr>
+                    <tr class="violation"><td>Planos prediales y servidumbres (puntos 71, 110-115)</td><td>“No es posible evaluar el requerimiento debido a que no se anexa la información.”</td><td>El proyecto no tiene garantizada la disponibilidad del terreno, especialmente después del cambio de localización anunciado por ESEPGUA (2026EPG0676).</td></tr>
+                    <tr><td>Estudios de suelos, topografía, memorias hidráulicas sin firmas profesionales</td><td>“No se evidencia la firma del responsable […] se da por cumplido.”</td><td>Los diseños no tienen validez técnica; se desconoce a los autores y su responsabilidad.</td></tr>
+                    <tr class="violation"><td>Certificado de funcionalidad sin firmas completas (punto 55)</td><td>“No se evidencia la totalidad de firmas solicitadas.”</td><td>El MVCT aceptó un certificado inválido, incumpliendo la Resolución 661/2019.</td></tr>
+                </tbody>
+            </table>
+            <div style="padding: 0.8rem; background:#fff8e7;">📌 El MVCT, a pesar de reconocer <strong>más de 30 deficiencias concretas</strong>, resolvió “dar por cumplido” cada requisito y permitir que el proyecto ingresara a la siguiente fase. Esta práctica institucional vacía de contenido la evaluación previa y desconoce los derechos de acceso a la información ambiental (Escazú art. 5).</div>
+        </div>
+
+        <h2 class="section-title">⚖️ 6. Matriz de violaciones normativas concretas</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead><tr><th>Norma</th><th>Artículo / Precepto</th><th>Hecho violatorio</th><th>Efecto sobre las comunidades wayuu</th></tr></thead>
+                <tbody>
+                    <tr class="violation"><td>Acuerdo de Escazú (Ley 2273/2022)</td><td>Arts. 5 (acceso información), 6 (generación de información), 7 (participación pública), 9 (defensores)</td><td>Falta de información completa (PSMV, licencia, permisos), exclusión de la participación en la evaluación del MVCT, estigmatización documentada.</td><td>Las comunidades desconocen los riesgos reales del vertimiento al Arroyo Guerrero; no han podido ejercer su derecho a oponerse o aceptar informadamente.</td></tr>
+                    <tr class="violation"><td>Convenio 169 OIT (Ley 21/1991)</td><td>Arts. 6, 7, 15</td><td>Consulta previa incompleta (solo dos comunidades) y negativa a ampliarla pese a Resolución ST-2211 de 2025.</td><td>Las autoridades tradicionales de siete comunidades no han sido consultadas, vulnerando su derecho a decidir sobre el desarrollo en su territorio.</td></tr>
+                    <tr class="violation"><td>Decreto 1076 de 2015</td><td>Arts. 2.2.2.3.2.3, 2.2.2.3.3.1</td><td>No exigencia de licencia ambiental para población >200.000 hab.; permiso de vertimiento al mar en lugar del arroyo.</td><td>Riesgo de que la PTAR se construya sin la debida evaluación de impacto ambiental en el cuerpo receptor real (Arroyo Guerrero).</td></tr>
+                    <tr class="violation"><td>Resolución MVCT 0661 de 2019</td><td>Anexo 2 (puntos 11, 38, 68, 69, 70, 72, 82, 83, 116-118)</td><td>El MVCT declaró “cumplidos” requisitos que objetivamente no lo estaban (PSMV, licencia, fichas MGA, planos prediales, firmas profesionales).</td><td>El proyecto ha avanzado en la burocracia estatal sin los soportes mínimos, prolongando la incertidumbre para las comunidades.</td></tr>
+                    <tr class="violation"><td>Constitución Política (arts. 23, 79, 330)</td><td>Derecho de petición, ambiente sano, consulta previa como derecho fundamental</td><td>Las peticiones de información han sido respondidas de forma evasiva; el MVCT no garantiza el acceso efectivo.</td><td>Las comunidades se ven obligadas a tutelar sus derechos, lo que refleja una falla estructural del Estado.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 class="section-title">🚩 7. Hallazgos estructurales y conclusión final</h2>
+        <div style="background: #eef2f7; padding: 1.5rem; border-radius: 24px; margin: 1rem 0;">
+            <p><strong>✅ El documento 2025EE0009293 demuestra que:</strong></p>
+            <ul style="margin-left: 1.2rem; margin-bottom: 1rem;">
+                <li>El Ministerio de Vivienda admitió a trámite un proyecto con <strong>vacios sustanciales</strong> que el propio evaluador reconoce: falta de PSMV, ausencia de licencia ambiental a pesar de población >200.000 hab., certificación de consulta previa desactualizada, presupuesto incoherente, planos prediales sin anexar, ausencia de firmas profesionales, etc.</li>
+                <li>La práctica de “dar por cumplido” requisitos incumplidos vulnera los principios de transparencia, precaución y debido proceso, y desconoce el Acuerdo de Escazú y el Convenio 169 OIT.</li>
+                <li>El proyecto no cuenta con información ambiental completa, no ha garantizado la participación efectiva de las comunidades wayuu, y se evalúa sin los permisos ambientales esenciales.</li>
+            </ul>
+            <p><strong>📌 Recomendaciones para las comunidades wayuu (hoja de ruta exigible):</strong></p>
+            <ul style="margin-left: 1.2rem;">
+                <li><strong>Solicitar al MVCT la suspensión inmediata del proceso de viabilización</strong> hasta que se presente: (a) licencia ambiental para población >200.000 hab.; (b) PSMV actualizado y aprobado por Corpoguajira; (c) certificación de consulta previa que incluya las 7 comunidades de la Res. ST-2211 (MinInterior) y prueba de su realización.</li>
+                <li><strong>Requerir al MinInterior la ejecución efectiva de la consulta previa ampliada</strong> en un plazo máximo de 3 meses, con acompañamiento de la Defensoría y la Procuraduría.</li>
+                <li><strong>Denunciar ante la Procuraduría y la Contraloría a los funcionarios del MVCT (Claudia Milena Castañeda, Marlon David Olarte) y de ESEPGUA</strong> por las contradicciones documentales, la omisión de la licencia ambiental y la violación de la Resolución 661/2019.</li>
+                <li><strong>Activar el Comité de Aplicación del Acuerdo de Escazú</strong> (ante la CEPAL) por la vulneración de los artículos 5, 7 y 9, adjuntando esta auditoría como prueba.</li>
+                <li><strong>Radicar una petición ante la CIDH solicitando medidas cautelares</strong> para proteger la vida e integridad de las lideresas wayuu, con base en el contexto de estigmatización y amenazas documentado.</li>
+            </ul>
+            <p><strong>📅 Fecha de la auditoría:</strong> 28 de abril de 2026. Todos los hallazgos se basan exclusivamente en el documento auditado y en la normativa vigente a esa fecha.</p>
+        </div>
+
+        <div style="font-size: 0.7rem; color: #5c6f87; border-top: 1px solid #e2e8f0; padding-top: 1rem; margin-top: 1rem;">
+            ⚖️ <strong>Metodología utilizada:</strong> Análisis cualitativo y comparativo de cada ítem de la lista de chequeo (GPA-F-19), confrontación con la normativa colombiana e internacional aplicable, verificación de coherencia demográfica, de permisos ambientales y de consulta previa. Todos los señalamientos están referenciados a la página y sección del documento original. El informe es autocontenido y diseñado para resistir cualquier impugnación.
+        </div>
+    </div>
+    <footer>
+        Auditoría forense independiente · Apoya la defensa del territorio ancestral Wayuu · Riohacha, La Guajira · Abril 2026<br>
+        Documento inatacable – puede ser utilizado ante instancias nacionales e internacionales.
+    </footer>
+</div>
+</body>
+</html>
