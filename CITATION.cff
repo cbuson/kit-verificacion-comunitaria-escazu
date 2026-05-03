@@ -5,7 +5,7 @@ authors:
   - family-names: "Busón Buesa"
     given-names: "Carlos"
 year: 2026
-repository-code: "https://github.com/TU_USUARIO/kit-verificacion-comunitaria-escazu"
+repository-code: "https://github.com/cbuson/kit-verificacion-comunitaria-escazu"
 license: "CC-BY-SA-4.0 AND MIT"
 keywords:
   - "Acuerdo de Escazú"
