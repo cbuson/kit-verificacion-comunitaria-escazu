@@ -1,4 +1,4 @@
-# Kit de Verificación Comunitaria Escazú
+# Kit de Verificación Comunitaria Escazú V.2.2
 
 Repositorio abierto de plantillas, formularios, guías y algoritmos para apoyar procesos comunitarios de verificación documental en proyectos con posible impacto ambiental bajo el Acuerdo de Escazú.
 
